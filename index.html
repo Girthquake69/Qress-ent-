@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qress-ent | African Hair Care & Identity</title>
+  <meta name="description" content="Qress-ent celebrates African hair, culture and identity through thoughtfully created hair-care products, education and stories." />
+  <meta property="og:title" content="Qress-ent | African Hair Care & Identity" />
+  <meta property="og:description" content="Hair is an identity. A cultural wellness movement reconnecting Africans with ancestral hair wisdom, identity and pride." />
+  <meta property="og:type" content="website" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="css/styles.css" />
+</head>
+<body>
+  <!-- HEADER -->
+  <header class="site-header">
+    <div class="container nav-inner">
+      <a href="index.html" class="logo" style="display:flex;align-items:center;">
+        <img src="images/logo.svg" alt="Qress-ent" style="height:52px;width:auto;display:block;">
+      </a>
+      <nav class="nav-links" aria-label="Main navigation">
+        <a href="index.html" class="active">Home</a>
+        <a href="pages/shop.html">Shop</a>
+        <a href="pages/our-story.html">Our Story</a>
+        <a href="pages/hair-culture.html">Hair & Culture</a>
+        <a href="pages/contact.html">Contact</a>
+      </nav>
+      <div class="nav-actions">
+        <button class="cart-btn" data-whatsapp-order aria-label="View order / WhatsApp">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+            <path d="M6 6h15l-1.5 9h-12z" />
+            <circle cx="9" cy="20" r="1.5" />
+            <circle cx="18" cy="20" r="1.5" />
+            <path d="M6 6L5 2H2" />
+          </svg>
+          <span class="cart-count" style="display:none">0</span>
+        </button>
+        <button class="menu-toggle" aria-label="Open menu" aria-expanded="false">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-content">
+          <p class="hero-label">Rooted in African hair</p>
+          <h1>HAIR IS AN IDENTITY.</h1>
+          <p class="hero-tagline" style="font-family:var(--font-serif);font-size:1.15rem;color:var(--muted-gold);margin-bottom:1rem;letter-spacing:0.02em;">Ancestral wisdom. Natural solutions. Your crown.</p>
+          <p class="hero-sub">A cultural wellness movement reconnecting Africans with ancestral hair wisdom, identity and pride.</p>
+          <div class="hero-ctas">
+            <a href="pages/shop.html" class="btn btn-primary">Shop Products</a>
+            <a href="pages/our-story.html" class="btn btn-secondary">Discover Our Story</a>
+          </div>
+        </div>
+        <div class="hero-image">
+          <img src="images/founder-profile-bantu.jpg" alt="African woman with Bantu knots and Africa map earring – Qress-ent">
+        </div>
+      </div>
+    </section>
+
+    <!-- FEATURED PRODUCTS -->
+    <section class="section products-section" id="products">
+      <div class="container">
+        <div class="section-header">
+          <p class="label">Our Collection</p>
+          <h2>CARE FOR YOUR CROWN.</h2>
+          <p>A collection created with African hair in mind.</p>
+        </div>
+        <div class="product-grid" id="product-grid">
+          <article class="product-card">
+            <div class="product-image">
+              <img src="images/product-shampoo.webp" alt="Qress-ent Shampoo with Aloe Vera">
+            </div>
+            <div class="product-body">
+              <p class="product-category">Hair Care</p>
+              <h3 class="product-name">Shampoo with Aloe Vera</h3>
+              <p class="product-desc">Hydrating formula with organic aloe and plant extracts. Nourish & transform hair. 1 Lt.</p>
+              <div class="product-meta">
+                <span class="product-price">KSh 200</span>
+              </div>
+              <div class="product-actions">
+                <a href="pages/product.html?id=shampoo-aloe" class="btn btn-secondary">View Product</a>
+                <button class="btn btn-primary" data-add-to-order data-id="shampoo-aloe" data-name="Shampoo with Aloe Vera" data-price="200" data-currency="KSh">Add to Order</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="images/product-handwash-apple.webp" alt="Qress-ent Handwash Apple & Aloe Vera">
+            </div>
+            <div class="product-body">
+              <p class="product-category">Hand Care</p>
+              <h3 class="product-name">Handwash – Apple & Aloe Vera</h3>
+              <p class="product-desc">Antibacterial handwash with apple and aloe vera. Eco-friendly. 500ML.</p>
+              <div class="product-meta">
+                <span class="product-price">KSh 200</span>
+              </div>
+              <div class="product-actions">
+                <a href="pages/product.html?id=handwash-apple" class="btn btn-secondary">View Product</a>
+                <button class="btn btn-primary" data-add-to-order data-id="handwash-apple" data-name="Handwash – Apple & Aloe Vera" data-price="200" data-currency="KSh">Add to Order</button>
+              </div>
+            </div>
+          </article>
+
+          <article class="product-card">
+            <div class="product-image">
+              <img src="images/product-handwash-strawberry.webp" alt="Qress-ent Handwash Strawberry">
+            </div>
+            <div class="product-body">
+              <p class="product-category">Hand Care</p>
+              <h3 class="product-name">Handwash – Strawberry</h3>
+              <p class="product-desc">Antibacterial handwash with strawberry. Eco-friendly. 500ML.</p>
+              <div class="product-meta">
+                <span class="product-price">KSh 200</span>
+              </div>
+              <div class="product-actions">
+                <a href="pages/product.html?id=handwash-strawberry" class="btn btn-secondary">View Product</a>
+                <button class="btn btn-primary" data-add-to-order data-id="handwash-strawberry" data-name="Handwash – Strawberry" data-price="200" data-currency="KSh">Add to Order</button>
+              </div>
+            </div>
+          </article>
+        </div>
+        <div class="text-center mt-2">
+          <a href="pages/shop.html" class="btn btn-secondary">View All Products</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY QRESS-ENT / PILLARS -->
+    <section class="section pillars-section">
+      <div class="container">
+        <div class="section-header">
+          <p class="label">Our Core Values</p>
+          <h2>ROOTED IN AFRICA.<br />GUIDED BY ANCESTRAL WISDOM.</h2>
+        </div>
+        <div class="pillars-grid" style="grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 1.75rem;">
+          <div class="pillar" style="background:var(--cream);border:1px solid var(--border);padding:0;overflow:hidden;text-align:left;">
+            <div style="aspect-ratio:16/10;overflow:hidden;"><img src="images/hands-styling-braids.jpg" alt="Sankofa" style="width:100%;height:100%;object-fit:cover;"></div>
+            <div style="padding:1.25rem 1.2rem 1.4rem;">
+              <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;color:var(--muted-gold);margin-bottom:0.4rem;">SANKOFA</p>
+              <h3 style="font-size:1.1rem;margin-bottom:0.5rem;">Reclaiming Lost Knowledge</h3>
+              <p style="font-size:0.88rem;color:var(--text-muted);">Recover ancestral African hair knowledge that was lost, hidden or erased.</p>
+            </div>
+          </div>
+          <div class="pillar" style="background:var(--cream);border:1px solid var(--border);padding:0;overflow:hidden;text-align:left;">
+            <div style="aspect-ratio:16/10;overflow:hidden;"><img src="images/founders-braiding.jpg" alt="Elimu" style="width:100%;height:100%;object-fit:cover;"></div>
+            <div style="padding:1.25rem 1.2rem 1.4rem;">
+              <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;color:var(--muted-gold);margin-bottom:0.4rem;">ELIMU</p>
+              <h3 style="font-size:1.1rem;margin-bottom:0.5rem;">Generational Education</h3>
+              <p style="font-size:0.88rem;color:var(--text-muted);">Passing down African hair knowledge across generations so it never disappears.</p>
+            </div>
+          </div>
+          <div class="pillar" style="background:var(--cream);border:1px solid var(--border);padding:0;overflow:hidden;text-align:left;">
+            <div style="aspect-ratio:16/10;overflow:hidden;"><img src="images/natural-afro-topdown.jpg" alt="Ubuntu" style="width:100%;height:100%;object-fit:cover;"></div>
+            <div style="padding:1.25rem 1.2rem 1.4rem;">
+              <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;color:var(--muted-gold);margin-bottom:0.4rem;">UBUNTU</p>
+              <h3 style="font-size:1.1rem;margin-bottom:0.5rem;">Radical Inclusivity</h3>
+              <p style="font-size:0.88rem;color:var(--text-muted);">Every African hair texture belongs — coils, curls, kinks and all expressions.</p>
+            </div>
+          </div>
+          <div class="pillar" style="background:var(--cream);border:1px solid var(--border);padding:0;overflow:hidden;text-align:left;">
+            <div style="aspect-ratio:16/10;overflow:hidden;"><img src="images/product-shampoo.webp" alt="Kimuntu" style="width:100%;height:100%;object-fit:cover;"></div>
+            <div style="padding:1.25rem 1.2rem 1.4rem;">
+              <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;color:var(--muted-gold);margin-bottom:0.4rem;">KIMUNTU</p>
+              <h3 style="font-size:1.1rem;margin-bottom:0.5rem;">Accessibility & Simplicity</h3>
+              <p style="font-size:0.88rem;color:var(--text-muted);">Hair care should be simple, natural and based on accessible resources.</p>
+            </div>
+          </div>
+          <div class="pillar" style="background:var(--cream);border:1px solid var(--border);padding:0;overflow:hidden;text-align:left;">
+            <div style="aspect-ratio:16/10;overflow:hidden;"><img src="images/founder-profile-africa-earring.jpg" alt="Ase" style="width:100%;height:100%;object-fit:cover;"></div>
+            <div style="padding:1.25rem 1.2rem 1.4rem;">
+              <p style="font-size:0.7rem;font-weight:600;letter-spacing:0.1em;color:var(--muted-gold);margin-bottom:0.4rem;">ASE</p>
+              <h3 style="font-size:1.1rem;margin-bottom:0.5rem;">Cultural Integrity</h3>
+              <p style="font-size:0.88rem;color:var(--text-muted);">Honoring and protecting ancestral knowledge with respect and power.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OUR STORY PREVIEW -->
+    <section class="section story-preview">
+      <div class="container story-grid">
+        <div class="story-image">
+          <img src="images/founders-braiding.jpg" alt="Catherine and Tracy Ojiambo – Twin founders of Qress-ent">
+        </div>
+        <div class="story-content">
+          <p class="label">Our Journey</p>
+          <h2>FROM QRESSINAH TO QRESS-ENT.</h2>
+          <p>Founded by twins Catherine and Tracy Ojiambo, Qress-ent is a cultural wellness movement sitting at the intersection of ancestral anthropology, clean science and modern education.</p>
+          <p>We exist to reconnect Africans globally with their identity, heritage and confidence — unearthing ancestral hair care wisdom so every natural crown can thrive with pride.</p>
+          <a href="pages/our-story.html" class="btn btn-primary">Meet Catherine & Tracy</a>
+        </div>
+      </div>
+    </section>
+
+
+    <!-- MEET THE TWINS -->
+    <section class="section" style="background:var(--warm-beige);">
+      <div class="container">
+        <div class="story-grid">
+          <div class="story-image">
+            <img src="images/founders-together.jpg" alt="Catherine and Tracy Ojiambo – Twin founders of Qress-ent">
+          </div>
+          <div class="story-content">
+            <p class="label">The Founders</p>
+            <h2>MEET THE TWINS.</h2>
+            <p>Catherine and Tracy Ojiambo are the twin founders of Qress-ent. Their shared vision is to reconnect Africans with ancestral hair wisdom, identity and confidence.</p>
+            <p>What began as Qressinah Enterprises has grown into a cultural wellness movement — one that treats African hair as a sacred canvas of heritage, not a problem to be solved.</p>
+            <a href="pages/our-story.html" class="btn btn-primary">Our Full Story</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- HAIR & CULTURE -->
+    <section class="section culture-section">
+      <div class="container">
+        <div class="section-header">
+          <p class="label">Learn & Explore</p>
+          <h2>ROOTS. CULTURE. IDENTITY.</h2>
+          <p>A living space for African hair knowledge, hairstyles, traditions and stories.</p>
+        </div>
+        <div class="culture-grid">
+          <article class="culture-card">
+            <div class="culture-card-image">
+              <img src="images/natural-afro-topdown.jpg" alt="Natural African hair – care and texture">
+            </div>
+            <div class="culture-card-body">
+              <p class="label">Hair Care</p>
+              <h3>Nourish & Maintain</h3>
+              <p>Guides on moisture, scalp care, protective styling and product education for African hair.</p>
+              <a href="pages/hair-culture.html#hair-care" class="btn btn-ghost">Explore →</a>
+            </div>
+          </article>
+          <article class="culture-card">
+            <div class="culture-card-image">
+              <img src="images/model-braids-front.jpg" alt="Protective braids and African hairstyles">
+            </div>
+            <div class="culture-card-body">
+              <p class="label">Hairstyles</p>
+              <h3>Braids, Locs & Beyond</h3>
+              <p>Traditional and modern interpretations of African hairstyles — protective, expressive and beautiful.</p>
+              <a href="pages/hair-culture.html#hairstyles" class="btn btn-ghost">Explore →</a>
+            </div>
+          </article>
+          <article class="culture-card">
+            <div class="culture-card-image">
+              <img src="images/founder-profile-africa-earring.jpg" alt="Heritage, identity and African beauty">
+            </div>
+            <div class="culture-card-body">
+              <p class="label">Culture & Stories</p>
+              <h3>Heritage & Identity</h3>
+              <p>Stories of hair, tradition, community and the founders’ journey.</p>
+              <a href="pages/hair-culture.html#culture" class="btn btn-ghost">Explore →</a>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- SOCIAL -->
+    <section class="section social-section">
+      <div class="container">
+        <div class="section-header">
+          <p class="label">Community</p>
+          <h2>SEE THE QRESS-ENT WORLD</h2>
+          <p>Follow the journey on Instagram, TikTok and more.</p>
+        </div>
+        <div class="social-links">
+          <a href="https://www.instagram.com/qressent" target="_blank" rel="noopener" class="btn btn-secondary" style="display:inline-flex;align-items:center;gap:0.5rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zM12 0C8.741 0 8.333.014 7.053.072 2.695.272.273 2.69.073 7.052.014 8.333 0 8.741 0 12c0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98C8.333 23.986 8.741 24 12 24c3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98C15.668.014 15.259 0 12 0zm0 5.838a6.162 6.162 0 100 12.324 6.162 6.162 0 000-12.324zM12 16a4 4 0 110-8 4 4 0 010 8zm6.406-11.845a1.44 1.44 0 100 2.881 1.44 1.44 0 000-2.881z"/></svg>
+            Instagram
+          </a>
+          <a href="https://www.tiktok.com/@qressinah.enterpr" target="_blank" rel="noopener" class="btn btn-secondary" style="display:inline-flex;align-items:center;gap:0.5rem;">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M19.59 6.69a4.83 4.83 0 01-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 01-2.88 2.5 2.89 2.89 0 01-2.89-2.89 2.89 2.89 0 012.89-2.89c.28 0 .54.04.79.1v-3.5a6.37 6.37 0 00-.79-.05A6.34 6.34 0 003.15 15.3a6.34 6.34 0 0010.86 4.43v-7.2a8.16 8.16 0 004.77 1.52v-3.4a4.85 4.85 0 01-1.19-.16z"/></svg>
+            TikTok
+          </a>
+          <a href="https://linktr.ee/qressinah" target="_blank" rel="noopener" class="btn btn-primary">All Our Links</a>
+        </div>
+        <p style="margin-top:1.5rem;font-size:0.9rem;color:var(--text-muted)">
+          Follow us on Instagram <a href="https://www.instagram.com/qressent" target="_blank" rel="noopener" style="color:var(--muted-gold)">@qressent</a> and TikTok <a href="https://www.tiktok.com/@qressinah.enterpr" target="_blank" rel="noopener" style="color:var(--muted-gold)">@qressinah.enterpr</a>.
+        </p>
+      </div>
+    </section>
+
+    <!-- CLOSING CTA -->
+    <section class="closing-section">
+      <div class="container">
+        <h2>YOUR HAIR.<br />YOUR STORY.<br />YOUR IDENTITY.</h2>
+        <p>Ready to discover Qress-ent? Connect with us directly and follow the journey.</p>
+        <div class="closing-ctas">
+          <button class="btn btn-whatsapp" data-whatsapp-order>Chat on WhatsApp</button>
+          <a href="https://linktr.ee/qressinah" target="_blank" rel="noopener" class="btn btn-secondary">All Our Links</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="index.html" class="logo" style="display:flex;align-items:center;">
+        <img src="images/logo.svg" alt="Qress-ent" style="height:52px;width:auto;display:block;">
+      </a>
+          <p>A modern African hair-care brand founded by twins Catherine and Tracy Ojiambo. Hair is an identity.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="pages/shop.html">Shop</a>
+          <a href="pages/our-story.html">Our Story</a>
+          <a href="pages/hair-culture.html">Hair & Culture</a>
+          <a href="pages/contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://linktr.ee/qressinah" target="_blank" rel="noopener">Linktree</a>
+          <a href="#" data-whatsapp-order>WhatsApp</a>
+          <a href="pages/contact.html">Contact Us</a>
+        </div>
+        <div class="footer-col">
+          <h4>Info</h4>
+          <a href="mailto:qressinahenterprises@gmail.com">qressinahenterprises@gmail.com</a>
+          <a href="#">Nairobi, Kenya</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Qress-ent. Previously Qressinah Enterprises.</span>
+        <span>Hair is an identity.</span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
