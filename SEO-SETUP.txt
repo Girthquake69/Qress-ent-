@@ -1,0 +1,36 @@
+QRESS-ENT – SEO & THUMBNAIL SETUP
+================================
+
+Domain configured: https://qressent.shop
+
+WHAT WAS ADDED
+--------------
+1. Open Graph tags on all pages
+2. Twitter Card tags (summary_large_image)
+3. Favicon (images/favicon.png)
+4. Canonical URLs
+5. images/og-image.jpg (1200×630 social thumbnail)
+6. sitemap.xml
+7. robots.txt
+
+STEPS AFTER THE SITE IS ONLINE
+------------------------------
+1. Deploy this folder to your host (Cloudflare Pages, Netlify, etc.)
+   so that https://qressent.shop loads the site.
+
+2. Google Search Console
+   - Go to https://search.google.com/search-console
+   - Add property: qressent.shop
+   - Verify ownership
+   - Submit sitemap: https://qressent.shop/sitemap.xml
+   - URL Inspection → Request indexing for https://qressent.shop/
+
+3. Test the thumbnail (after deploy):
+   - https://developers.facebook.com/tools/debug/
+   - https://www.opengraph.xyz/
+   Paste: https://qressent.shop/
+
+OPTIONAL
+--------
+Replace images/og-image.jpg with any 1200×630 photo you prefer
+(keep the same filename).
