@@ -1,6 +1,4 @@
-/* Qress-ent core styles - full design continues in styles-part2/3 */
-@import url('styles-part2.css');
-@import url('styles-part3.css');
+/* Qress-ent styles */
 
 :root {
   --cream: #FDF5E8;
