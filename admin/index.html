@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Qress-ent Admin (Placeholder)</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #F8F4F0; color: #2C2420; padding: 3rem 1.5rem; max-width: 640px; margin: 0 auto; line-height: 1.6; }
+    h1 { font-size: 1.8rem; margin-bottom: 0.5rem; }
+    .box { background: white; border: 1px solid #E5D9CB; padding: 1.5rem; margin-top: 1.5rem; }
+    code { background: #EDE6DC; padding: 0.15rem 0.4rem; font-size: 0.9rem; }
+  </style>
+</head>
+<body>
+  <h1>Qress-ent Admin</h1>
+  <p>This is a <strong>placeholder</strong> for the future CMS / admin dashboard.</p>
+
+  <div class="box">
+    <h2 style="font-size:1.1rem;margin-bottom:0.75rem">Planned capabilities</h2>
+    <ul>
+      <li>Secure login</li>
+      <li>Manage products (add / edit / delete / photos / prices)</li>
+      <li>Manage articles (create / publish / categories)</li>
+      <li>Edit homepage copy, CTAs, contact details</li>
+      <li>Upload & organise images</li>
+      <li>Manage testimonials</li>
+      <li>Site settings (WhatsApp number, social links, logo, currency)</li>
+    </ul>
+  </div>
+
+  <div class="box">
+    <h2 style="font-size:1.1rem;margin-bottom:0.75rem">Recommended next implementation</h2>
+    <p>For lowest cost and full control:</p>
+    <ol>
+      <li><strong>Cloudflare Pages + D1 + R2 + Workers</strong> (very cheap / free tier)</li>
+      <li>or <strong>Supabase</strong> (free tier, auth + database + storage)</li>
+      <li>or <strong>PocketBase</strong> (self-hosted, single binary)</li>
+    </ol>
+    <p>The current static site is structured so any of these can be added without redesigning the public pages.</p>
+  </div>
+
+  <p style="margin-top:2rem;font-size:0.9rem;color:#8A7B6E">
+    Do not put real credentials or admin logic in public JavaScript.  
+    Authentication must live on the server side.
+  </p>
+</body>
+</html>
