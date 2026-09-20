@@ -1,4 +1,0 @@
-User-agent: *
-Allow: /
-
-Sitemap: https://qressent.shop/sitemap.xml
