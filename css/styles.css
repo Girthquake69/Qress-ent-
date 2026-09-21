@@ -27,7 +27,7 @@
   --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   /* Spacing & layout */
-  --container: 1200px;
+  --container: 1360px;
   --section-pad: clamp(3.5rem, 8vw, 6.5rem);
   --radius: 2px;
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -294,8 +294,17 @@ p { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.7; }
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(to right, var(--warm-beige) 0%, transparent 18%);
+  background: linear-gradient(to right, var(--warm-beige) 0%, transparent 10%);
   pointer-events: none;
+}
+/* Group shot: show full scene */
+.hero-mirror .hero-image img {
+  object-fit: cover;
+  object-position: center center;
+}
+.hero-mirror .hero-image::after {
+  background: linear-gradient(to left, var(--cream) 0%, transparent 8%);
+  opacity: 0.85;
 }
 
 @media (max-width: 900px) {
@@ -975,7 +984,8 @@ button:focus-visible {
   direction: ltr;
 }
 .hero-mirror .hero-image::after {
-  background: linear-gradient(to left, var(--cream) 0%, transparent 18%);
+  background: linear-gradient(to left, var(--cream) 0%, transparent 8%);
+  opacity: 0.85;
 }
 @media (max-width: 900px) {
   .hero-mirror .hero-grid {
@@ -1832,24 +1842,6 @@ html, body {
 }
 
 
-/* ========== AFRO COMB HERO WATERMARK ========== */
-.hero-content { position: relative; z-index: 1; }
-.hero-afro-comb {
-  position: absolute;
-  right: -8%;
-  bottom: -12%;
-  width: min(280px, 55%);
-  height: auto;
-  opacity: 0.07;
-  pointer-events: none;
-  z-index: 0;
-  color: var(--deep-brown);
-}
-.hero-afro-comb svg { width: 100%; height: auto; display: block; }
-@media (max-width: 900px) {
-  .hero-afro-comb { width: min(200px, 45%); right: 0; bottom: -8%; opacity: 0.06; }
-}
-
 /* ========== NEWSLETTER ========== */
 .newsletter-section {
   background: var(--warm-beige);
@@ -1888,3 +1880,164 @@ html, body {
 
 /* Centre feature: allow wider image, subtler side fade */
 .catherine-grid img { width: 100%; height: auto; display: block; }
+
+/* ========== SITE-WIDE SOFT PATTERN BACKGROUND ========== */
+body {
+  background-color: var(--cream);
+  background-image: none;
+  position: relative;
+}
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-color: var(--cream);
+  background-image: url("../images/bg-pattern.jpg");
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  opacity: 0.42;
+}
+/* Keep all content above the pattern */
+.site-header,
+main,
+.site-footer {
+  position: relative;
+  z-index: 1;
+}
+/* Soften pattern slightly more on small screens; scale so ornaments stay visible */
+@media (max-width: 900px) {
+  body::before {
+    opacity: 0.38;
+    /* slightly larger than viewport so edge flourishes aren't harshly cropped */
+    background-size: 160% auto;
+    background-position: center top;
+  }
+}
+@media (max-width: 500px) {
+  body::before {
+    opacity: 0.36;
+    background-size: 200% auto;
+    background-position: center top;
+  }
+}
+
+/* Soft surfaces so pattern reads through without killing contrast */
+.section,
+.pillars-section,
+.story-preview,
+.social-section,
+.newsletter-section,
+.products-section,
+.culture-section,
+.page-hero,
+.hero {
+  /* keep declared backgrounds but allow pattern if translucent overrides exist */
+}
+/* Translucent cream overlays for key bands */
+.hero {
+  background: rgba(245, 235, 217, 0.72) !important; /* warm-beige soft */
+}
+.hero-mirror {
+  background: rgba(253, 245, 232, 0.78) !important;
+}
+.pillars-section {
+  background: rgba(245, 235, 217, 0.75) !important;
+}
+.story-preview {
+  background: rgba(253, 245, 232, 0.78) !important;
+}
+.social-section {
+  background: rgba(253, 245, 232, 0.8) !important;
+}
+.newsletter-section {
+  background: rgba(245, 235, 217, 0.78) !important;
+}
+.page-hero {
+  background: rgba(245, 235, 217, 0.8) !important;
+}
+.site-header {
+  background: rgba(253, 245, 232, 0.88) !important;
+}
+.site-header.scrolled {
+  background: rgba(253, 245, 232, 0.94) !important;
+}
+/* Cards/quotes stay solid for readability */
+.ge-quote,
+.article-card,
+.pillar {
+  background: rgba(253, 245, 232, 0.92);
+}
+
+
+/* ========== FULL ARTICLE PAGES ========== */
+.article-page {
+  padding: 120px 0 var(--section-pad);
+}
+.article-page .article-hero-img {
+  width: 100%;
+  max-height: 420px;
+  object-fit: cover;
+  border-radius: 2px;
+  margin-bottom: 2.5rem;
+  background: var(--soft-sand);
+}
+.article-page .article-meta {
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--muted-gold);
+  margin-bottom: 0.75rem;
+}
+.article-page h1 {
+  font-size: clamp(1.9rem, 4vw, 2.8rem);
+  margin-bottom: 1.25rem;
+  max-width: 820px;
+}
+.article-page .article-lead {
+  font-size: 1.15rem;
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin-bottom: 2rem;
+  line-height: 1.7;
+}
+.article-body {
+  max-width: 720px;
+}
+.article-body p {
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+  line-height: 1.75;
+  color: var(--text-secondary);
+}
+.article-body h2 {
+  font-size: 1.45rem;
+  margin: 2.25rem 0 1rem;
+  color: var(--charcoal);
+}
+.article-body h3 {
+  font-size: 1.2rem;
+  margin: 1.75rem 0 0.75rem;
+}
+.article-back {
+  display: inline-flex;
+  margin-bottom: 2rem;
+  font-size: 0.85rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--muted-gold);
+}
+.article-back:hover { color: var(--deep-brown); }
+.articles-grid a.article-card {
+  display: block;
+  color: inherit;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.articles-grid a.article-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(44, 26, 14, 0.08);
+}
