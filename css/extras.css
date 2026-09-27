@@ -56,21 +56,31 @@
 .ge-row-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 0.85rem; }
 .ge-row-3 .ge-photo, .ge-row-4 .ge-photo { aspect-ratio: 1; }
 .ge-block-1 .ge-left .ge-photo, .ge-block-2 .ge-right .ge-photo { aspect-ratio: 4/3; }
+/* Mobile: keep desktop-like multi-column grid, just smaller */
 @media (max-width: 900px) {
-  .ge-block .ge-main { grid-template-columns: 1fr !important; }
-  .ge-block-1 .ge-main, .ge-block-2 .ge-main { display: flex; flex-direction: column; gap: 1.25rem; }
-  .ge-left, .ge-right { display: contents; }
-  .ge-block-1 .ge-left .ge-photo { order: 1; }
-  .ge-block-1 .ge-right.ge-tall { order: 2; }
-  .ge-block-1 .ge-left .ge-quote { order: 3; }
-  .ge-block-2 .ge-left.ge-tall { order: 1; }
-  .ge-block-2 .ge-right .ge-photo { order: 2; }
-  .ge-block-2 .ge-right .ge-quote { order: 3; }
-  .ge-photo, .ge-tall { width: 100%; aspect-ratio: 4/5; }
-  .ge-row-3, .ge-row-4 { grid-template-columns: 1fr 1fr; }
+  .ge-block .ge-main {
+    grid-template-columns: 1.35fr 1fr !important;
+    gap: 0.45rem !important;
+  }
+  .ge-block-1 .ge-main,
+  .ge-block-2 .ge-main {
+    display: grid !important;
+  }
+  .ge-left, .ge-right {
+    display: flex !important;
+    flex-direction: column !important;
+    gap: 0.45rem !important;
+  }
+  .ge-row-3 { grid-template-columns: repeat(3, 1fr) !important; gap: 0.45rem !important; }
+  .ge-row-4 { grid-template-columns: repeat(4, 1fr) !important; gap: 0.45rem !important; }
+  .ge-quote { padding: 0.65rem 0.5rem !important; min-height: 0 !important; }
+  .ge-quote p { font-size: clamp(0.55rem, 2.2vw, 0.75rem) !important; line-height: 1.35 !important; }
+  .ge-quote cite { font-size: 0.5rem !important; }
 }
 @media (max-width: 500px) {
-  .ge-row-3, .ge-row-4 { grid-template-columns: 1fr; }
+  .ge-row-3 { grid-template-columns: repeat(3, 1fr) !important; }
+  .ge-row-4 { grid-template-columns: repeat(4, 1fr) !important; }
+  .ge-block .ge-main { grid-template-columns: 1.35fr 1fr !important; }
 }
 .hero-mirror .hero-grid { direction: rtl; }
 .hero-mirror .hero-grid > * { direction: ltr; }
