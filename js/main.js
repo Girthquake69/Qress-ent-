@@ -170,8 +170,9 @@
 
   // ========== SCROLL REVEAL ==========
   function initScrollReveal() {
+    // Avoid opacity:0 traps on tall mobile pages (essay/article bodies)
     const els = document.querySelectorAll(
-      ".section, .pillar, .culture-card, .story-grid, .product-card, .catherine-grid, .footer-grid > *, .editorial-row, .editorial-media, .editorial-copy, .philosophy-block, .essay-hero, .essay-body, .article-card, .story-block"
+      ".pillar, .culture-card, .product-card, .catherine-grid, .footer-grid > *, .editorial-row, .editorial-media, .editorial-copy, .philosophy-block, .essay-hero, .article-card, .story-block, .contact-card"
     );
     els.forEach((el, i) => {
       el.classList.add("reveal");
@@ -179,10 +180,12 @@
       if (delay > 0) el.classList.add("reveal-delay-" + delay);
     });
 
-    // Hero already animates via CSS; mark first hero as visible
-    document.querySelectorAll(".hero, .page-hero").forEach((h) => {
+    // Never hide heroes / long-form text / primary sections
+    document.querySelectorAll(".hero, .page-hero, .essay-body, .article-body, .section, .article-page, .essay-page, main").forEach((h) => {
       h.classList.remove("reveal");
       h.classList.add("visible");
+      h.style.opacity = "";
+      h.style.transform = "";
     });
 
     if (!("IntersectionObserver" in window)) {
@@ -199,10 +202,18 @@
           }
         });
       },
-      { root: null, rootMargin: "0px 0px -8% 0px", threshold: 0.12 }
+      { root: null, rootMargin: "0px 0px -4% 0px", threshold: 0.05 }
     );
 
     document.querySelectorAll(".reveal").forEach((el) => observer.observe(el));
+
+    // Safety: if anything is still hidden after load, show it (mobile Safari quirks)
+    setTimeout(() => {
+      document.querySelectorAll(".reveal:not(.visible)").forEach((el) => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight + 80) el.classList.add("visible");
+      });
+    }, 600);
   }
 
   // ========== INIT ==========

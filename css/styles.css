@@ -2708,3 +2708,20 @@ a.pillar p[style*="muted-gold"] {
     background: linear-gradient(to bottom, transparent 50%, rgba(245, 235, 217, 0.95) 100%) !important;
   }
 }
+
+
+/* SAFETY: long-form essay content must always stay visible */
+.essay-body,
+.article-body,
+.essay-page .article-lead,
+.essay-page h1,
+.page-hero,
+.article-page {
+  opacity: 1 !important;
+  transform: none !important;
+}
+.essay-body.reveal,
+.article-body.reveal {
+  opacity: 1 !important;
+  transform: none !important;
+}
