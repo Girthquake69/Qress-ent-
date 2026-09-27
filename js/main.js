@@ -48,10 +48,24 @@
     });
   }
 
+  function buildWhatsAppMessage() {
+    const cart = getCart();
+    if (cart.length === 0) {
+      return "Hello Qress-ent, I would like to place an order.";
+    }
+    let msg = "Hello Qress-ent! I would like to order:\n\n";
+    cart.forEach((item) => {
+      msg += `• ${item.name} × ${item.qty} — ${item.currency || "KSh"} ${item.price}\n`;
+    });
+    msg += "\nPlease confirm availability and total. Thank you!";
+    return encodeURIComponent(msg);
+  }
+
   // WhatsApp business number
   const WHATSAPP_NUMBER = "254706813424";
 
   function openWhatsAppOrder() {
+    // Open chat with no pre-filled message
     window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
   }
 
@@ -149,6 +163,7 @@
       openWhatsAppOrder();
     }
   });
+
 
   // ========== SCROLL REVEAL ==========
   function initScrollReveal() {
