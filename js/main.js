@@ -100,9 +100,12 @@
     const setOpen = (open) => {
       links.classList.toggle("open", open);
       toggle.setAttribute("aria-expanded", open ? "true" : "false");
+      document.body.classList.toggle("nav-open", open);
     };
 
-    toggle.addEventListener("click", () => {
+    toggle.addEventListener("click", (e) => {
+      e.preventDefault();
+      e.stopPropagation();
       setOpen(!links.classList.contains("open"));
     });
 
@@ -168,7 +171,7 @@
   // ========== SCROLL REVEAL ==========
   function initScrollReveal() {
     const els = document.querySelectorAll(
-      ".section, .pillar, .culture-card, .story-grid, .product-card, .catherine-grid, .footer-grid > *"
+      ".section, .pillar, .culture-card, .story-grid, .product-card, .catherine-grid, .footer-grid > *, .editorial-row, .editorial-media, .editorial-copy, .philosophy-block, .essay-hero, .essay-body, .article-card, .story-block"
     );
     els.forEach((el, i) => {
       el.classList.add("reveal");
@@ -177,8 +180,9 @@
     });
 
     // Hero already animates via CSS; mark first hero as visible
-    document.querySelectorAll(".hero").forEach((h) => {
+    document.querySelectorAll(".hero, .page-hero").forEach((h) => {
       h.classList.remove("reveal");
+      h.classList.add("visible");
     });
 
     if (!("IntersectionObserver" in window)) {

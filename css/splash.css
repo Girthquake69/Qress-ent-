@@ -48,9 +48,9 @@ body.splash-active {
 }
 
 .splash-bg-image img {
-  opacity: 0.15;
-  mix-blend-mode: screen;
-  filter: contrast(1.1);
+  opacity: 0.2;
+  mix-blend-mode: soft-light;
+  filter: contrast(1.12);
 }
 
 .splash-bg-overlay {
@@ -182,4 +182,35 @@ body.splash-active {
   display: none !important;
   visibility: hidden;
   pointer-events: none;
+}
+
+
+/* Mobile splash background – stronger, readable pattern */
+@media (max-width: 768px) {
+  .splash-bg-image img {
+    opacity: 0.42;
+    mix-blend-mode: soft-light;
+    filter: contrast(1.15) brightness(1.05);
+  }
+  .splash-bg-overlay {
+    background: radial-gradient(
+      circle at center,
+      rgba(44, 26, 14, 0.15) 0%,
+      rgba(44, 26, 14, 0.55) 70%,
+      rgba(44, 26, 14, 0.75) 100%
+    );
+  }
+  .splash-monogram {
+    width: min(280px, 70vw);
+  }
+  .splash-monogram img {
+    opacity: 0.45;
+  }
+}
+
+/* Desktop: slightly clearer pattern too */
+@media (min-width: 769px) {
+  .splash-bg-image img {
+    opacity: 0.22;
+  }
 }
