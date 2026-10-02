@@ -23,40 +23,46 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="css/styles.css" />
   <link rel="stylesheet" href="css/extras.css" />
   <link rel="stylesheet" href="css/splash.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js" defer></script>
   <script src="js/splash.js" defer></script>
 </head>
 <body class="splash-active">
-  <!-- SPLASH SCREEN (every visit, auto-hides when animation ends) -->
-  <div class="splash-container" id="splashContainer" aria-hidden="false" role="presentation">
-    <div class="splash-panel-lining" id="splashLining"></div>
-    <div class="splash-panel-main" id="splashMain">
-      <div class="splash-bg-image">
-        <picture>
-          <source media="(max-width: 768px)" srcset="images/splash-bg-mobile.jpg" />
-          <img src="images/splash-bg-desktop.jpg" alt="" />
-        </picture>
+  <!-- CINEMATIC SPLASH: heritage → gravity → identity → Qress-ent -->
+  <div class="splash" id="splash" role="dialog" aria-modal="true" aria-label="Qress-ent introduction">
+    <div class="splash__backdrop" aria-hidden="true"></div>
+    <div class="heritage-pattern" id="heritagePattern" aria-hidden="true"></div>
+    <div class="grain" aria-hidden="true"></div>
+    <div class="ambient-glow" id="ambientGlow" aria-hidden="true"></div>
+
+    <div class="stage">
+      <div class="orbit-system" id="orbitSystem" aria-hidden="true">
+        <div class="orbit-line" id="orbitLine"></div>
+        <svg class="orbit-stroke" id="orbitStroke" viewBox="0 0 100 100" aria-hidden="true">
+          <path id="orbitPath" d="M 10 50 C 12 18, 39 1, 67 10 C 92 18, 101 44, 87 70 C 75 91, 42 99, 18 80 C 4 69, 3 55, 10 50" />
+        </svg>
+        <div class="orbit-light" id="orbitLight"></div>
+        <div class="values" id="values">
+          <span class="value">Sankofa</span>
+          <span class="value">Elimu</span>
+          <span class="value">Ubuntu</span>
+          <span class="value">Kimuntu</span>
+          <span class="value">Ase</span>
+        </div>
+        <div class="identity-core" id="identityCore"></div>
       </div>
-      <div class="splash-bg-overlay"></div>
-      <div class="splash-noise"></div>
-      <div class="splash-monogram" id="splashMonogram">
-        <img src="images/splash-monogram.png" alt="" />
-      </div>
-      <div class="splash-word-swap">
-        <div class="splash-swap-word">ELEGANCE</div>
-        <div class="splash-swap-word">PRESENCE</div>
-        <div class="splash-swap-word">IDENTITY</div>
-      </div>
-      <div class="splash-brand" id="splashBrand">
-        <h1 class="splash-brand-title" id="splashBrandTitle">Qress-ent</h1>
-        <div class="splash-gold-line" id="splashGoldLine"></div>
-        <div class="splash-tagline" id="splashTagline">Hair is an Identity</div>
+
+      <div class="brand-lockup" id="brandLockup">
+        <h1 class="brand-title" id="brandTitle">Qress-ent</h1>
+        <div class="brand-divider" id="brandDivider" aria-hidden="true"></div>
+        <p class="tagline" id="tagline"><span>Hair is an Identity</span></p>
       </div>
     </div>
+
+    <div class="splash__curtain" id="splashCurtain" aria-hidden="true"></div>
   </div>
 
   <!-- HEADER -->
