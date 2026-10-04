@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600&display=swap');
 /* ============================================
    QRESS-ENT — Premium African Hair-Care Brand
    Design System — original cream / brown / gold
@@ -18,18 +19,23 @@
   --white: #FFFFFF;
   --text-primary: #2C1A0E;
   --text-secondary: #5C3A1E;
-  --text-muted: #8A6A4A;
+  --text-muted: #755638;
   --border: #E8D9C0;
   --success: #4A6B4A;
 
   /* Typography */
   --font-serif: "Playfair Display", Georgia, "Times New Roman", serif;
-  --font-sans: "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  --font-sans: "Outfit", "Inter", system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
 
   /* Spacing & layout */
-  --container: 1360px;
-  --section-pad: clamp(3.5rem, 8vw, 6.5rem);
-  --radius: 6px;
+  --container: 1280px;
+  --section-pad: clamp(4.5rem, 10vw, 8.5rem);
+  --radius: 20px;
+  --r-sm: 12px;
+  --r-lg: 28px;
+  --gold-ink: #94560A;
+  --shadow-tint: 74, 36, 8;
+  --ease-out: cubic-bezier(0.32, 0.72, 0, 1);
   --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
@@ -2845,5 +2851,348 @@ a.pillar p[style*="muted-gold"] {
   }
   .hc-closing-actions .btn {
     width: 100%;
+  }
+}
+
+
+/* =====================================================================
+   REFINEMENT LAYER: editorial heritage, floating nav, concentric radii
+   Radius system: pills for interactive, 28px outer / 20px inner for media
+   ===================================================================== */
+body { font-weight: 400; letter-spacing: 0.005em; }
+body::before { opacity: 0.26; }
+h1, h2, h3, h4 { text-wrap: balance; }
+p { text-wrap: pretty; max-width: 68ch; }
+h2 { letter-spacing: -0.02em; line-height: 1.12; }
+.label, .hero-label, .section-header .label, .story-content .label,
+.culture-card-body .label, .page-hero .label, .article-meta {
+  color: var(--gold-ink);
+  font-family: var(--font-sans);
+  letter-spacing: 0.2em;
+}
+.section-header { max-width: 720px; margin-bottom: clamp(2.5rem, 5vw, 4.5rem); }
+.section-header p { margin-left: auto; margin-right: auto; }
+
+/* ---------- Floating pill navigation ---------- */
+.site-header {
+  top: 14px;
+  left: 0;
+  right: 0;
+  width: min(1200px, calc(100% - 2rem));
+  margin-inline: auto;
+  border-radius: 999px;
+  border: 1px solid rgba(232, 160, 32, 0.22);
+  box-shadow: 0 18px 40px -18px rgba(var(--shadow-tint), 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  background: rgba(44, 26, 14, 0.9) !important;
+  -webkit-backdrop-filter: blur(18px) saturate(140%);
+  backdrop-filter: blur(18px) saturate(140%);
+}
+.site-header .nav-inner { height: 64px; padding: 0 1.5rem 0 1.75rem; }
+.site-header .nav-links { gap: clamp(1.25rem, 2.4vw, 2.5rem); }
+.site-header .nav-links a {
+  position: relative;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+  padding: 0.35rem 0;
+}
+.site-header .nav-links a::after {
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 1px;
+  background: var(--soft-gold);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.5s var(--ease-out);
+}
+.site-header .nav-links a:hover::after,
+.site-header .nav-links a.active::after { transform: scaleX(1); }
+
+/* ---------- Buttons: pill shape, tactile press ---------- */
+.btn {
+  border-radius: 999px;
+  padding: 1rem 2rem;
+  font-family: var(--font-sans);
+  font-size: 0.76rem;
+  letter-spacing: 0.14em;
+  white-space: nowrap;
+  transition: transform 0.5s var(--ease-out), box-shadow 0.5s var(--ease-out),
+              background-color 0.4s var(--ease-out), color 0.4s var(--ease-out),
+              border-color 0.4s var(--ease-out);
+}
+.btn:active { transform: scale(0.98) !important; }
+.btn-primary {
+  background: var(--deep-brown);
+  color: var(--cream);
+  box-shadow: 0 14px 28px -14px rgba(var(--shadow-tint), 0.65);
+}
+.btn-primary:hover {
+  background: var(--muted-gold);
+  color: var(--charcoal);
+  box-shadow: 0 18px 32px -14px rgba(200, 118, 10, 0.55);
+}
+.btn-secondary { border-color: rgba(74, 36, 8, 0.45); color: var(--deep-brown); }
+.btn-secondary:hover {
+  background: var(--deep-brown);
+  border-color: var(--deep-brown);
+  color: var(--cream);
+  box-shadow: 0 14px 28px -14px rgba(var(--shadow-tint), 0.5);
+}
+.btn-whatsapp { background: #25D366; color: #0B2A17; }
+.btn-whatsapp:hover { background: #3BE07A; box-shadow: 0 14px 28px -12px rgba(37, 211, 102, 0.5); }
+.closing-section .btn-secondary { border-color: rgba(229, 212, 184, 0.55); }
+
+/* ---------- Heroes ---------- */
+.hero {
+  min-height: 100dvh;
+  padding-top: 104px;
+  padding-bottom: 3rem;
+}
+.hero-grid {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  gap: clamp(2.5rem, 6vw, 6rem);
+  min-height: calc(100dvh - 128px);
+}
+.hero-content { max-width: 620px; padding: 2rem 0; }
+.hero h1 {
+  font-size: clamp(2.3rem, 4.2vw, 3.8rem);
+  line-height: 1.05;
+  letter-spacing: -0.025em;
+  max-width: 12em;
+  margin-bottom: 1.25rem;
+}
+.hero-tagline { font-size: 1.1rem !important; color: var(--gold-ink) !important; letter-spacing: 0.02em; }
+.hero-sub { max-width: 46ch; font-size: 1.1rem; margin-bottom: 2.25rem; }
+
+/* Wordmark block above the headline becomes a quiet single-line byline */
+.hero-content > div[style*="margin-bottom:2rem"] {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1.75rem !important;
+}
+.hero-content > div[style*="margin-bottom:2rem"] p {
+  font-family: var(--font-sans) !important;
+  font-size: 0.74rem !important;
+  font-weight: 600 !important;
+  letter-spacing: 0.26em !important;
+  text-transform: uppercase;
+  line-height: 1.4 !important;
+  margin: 0 !important;
+}
+.hero-content > div[style*="margin-bottom:2rem"] p:first-child { color: var(--deep-brown) !important; }
+.hero-content > div[style*="margin-bottom:2rem"] p:last-child {
+  color: var(--gold-ink) !important;
+  padding-left: 0.9rem;
+  border-left: 1px solid rgba(148, 86, 10, 0.5);
+}
+
+.hero-image {
+  min-height: 520px;
+  height: min(72dvh, 680px);
+  border-radius: var(--r-lg);
+  background: var(--soft-sand);
+  box-shadow: 0 40px 70px -36px rgba(var(--shadow-tint), 0.6);
+  outline: 1px solid rgba(200, 118, 10, 0.35);
+  outline-offset: 10px;
+}
+.hero-image::after,
+.hero-mirror .hero-image::after { display: none; }
+.hero-image img { transition: transform 1.2s var(--ease-out); }
+
+/* Second hero is a lighter chapter, not a second full screen */
+.hero-mirror { min-height: auto; padding-top: clamp(4.5rem, 9vw, 8rem); padding-bottom: clamp(4.5rem, 9vw, 8rem); }
+.hero-mirror .hero-grid { min-height: auto; }
+.hero-mirror .hero-image { height: min(64dvh, 600px); }
+
+/* ---------- Core values: concentric bento (3 + 2, no gaps) ---------- */
+.pillars-section { padding-bottom: clamp(5rem, 10vw, 9rem); }
+a.pillar, .pillars-grid .pillar {
+  padding: 6px !important;
+  border-radius: var(--r-lg);
+  border: 1px solid rgba(232, 160, 32, 0.3) !important;
+  background: var(--deep-brown) !important;
+  box-shadow: 0 30px 50px -34px rgba(var(--shadow-tint), 0.7), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  display: flex !important;
+  flex-direction: column;
+  transition: transform 0.7s var(--ease-out), box-shadow 0.7s var(--ease-out);
+}
+a.pillar:hover, .pillars-grid .pillar:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 40px 60px -32px rgba(var(--shadow-tint), 0.8), inset 0 1px 0 rgba(255, 255, 255, 0.1);
+}
+a.pillar > div:first-child {
+  border-radius: calc(var(--r-lg) - 6px);
+  overflow: hidden;
+  flex: 1 1 auto;
+}
+a.pillar > div:first-child img { height: 100% !important; width: 100%; object-fit: cover; }
+a.pillar > div:last-child { padding: 1.4rem 1.35rem 1.5rem !important; flex: 0 0 auto; }
+a.pillar > div:last-child p:first-child { color: var(--soft-gold) !important; letter-spacing: 0.22em !important; }
+a.pillar h3 { font-size: 1.3rem !important; line-height: 1.2; }
+a.pillar > div:last-child p:last-child { color: rgba(253, 245, 232, 0.82) !important; line-height: 1.6; }
+
+@media (min-width: 901px) {
+  .pillars-grid { grid-template-columns: repeat(6, 1fr) !important; gap: 1.25rem !important; grid-auto-flow: dense; }
+  .pillars-grid .pillar:nth-child(-n+3) { grid-column: span 2; }
+  .pillars-grid .pillar:nth-child(n+4) { grid-column: span 3; }
+  .pillars-grid .pillar:nth-child(n+4) > div:first-child { aspect-ratio: 16 / 9 !important; }
+}
+
+/* ---------- Story preview ---------- */
+.story-grid { grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr); gap: clamp(2.5rem, 7vw, 7rem); }
+.story-image {
+  border-radius: var(--r-lg);
+  box-shadow: 0 40px 70px -40px rgba(var(--shadow-tint), 0.6);
+  outline: 1px solid rgba(200, 118, 10, 0.35);
+  outline-offset: 10px;
+}
+.story-content h2 { max-width: 14em; }
+.story-content p { max-width: 52ch; }
+
+/* ---------- Rooted / Worn feature ---------- */
+.catherine-grid > div:nth-child(2) {
+  border-radius: var(--r-lg);
+  box-shadow: 0 40px 70px -40px rgba(var(--shadow-tint), 0.55);
+}
+.catherine-grid > div:nth-child(2) img { border-radius: 0 !important; }
+.catherine-grid > div:first-child p:first-child,
+.catherine-grid > div:last-child p:first-child {
+  font-size: clamp(1.6rem, 2.6vw, 2.3rem) !important;
+  letter-spacing: -0.01em !important;
+  line-height: 1.1;
+}
+.catherine-grid > div:first-child p:last-child,
+.catherine-grid > div:last-child p:last-child { color: var(--gold-ink) !important; }
+
+/* ---------- Gallery ---------- */
+.gallery-exact { gap: 1rem; }
+.ge-block .ge-main { gap: 1rem; }
+.ge-left, .ge-right { gap: 1rem; }
+.ge-row-3, .ge-row-4 { gap: 1rem; }
+.ge-photo, .ge-tall { border-radius: var(--r-lg); }
+.ge-row-3 .ge-photo, .ge-row-4 .ge-photo { border-radius: var(--r-sm); }
+.ge-photo img, .ge-tall > img { transition: transform 1.1s var(--ease-out); }
+.ge-quote {
+  border-radius: var(--r-lg);
+  border: 1px solid rgba(200, 118, 10, 0.28);
+  background: linear-gradient(160deg, rgba(253, 245, 232, 0.96), rgba(229, 212, 184, 0.7));
+  padding: clamp(1.75rem, 3vw, 2.75rem);
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+}
+.ge-quote p { font-size: clamp(1.1rem, 1.6vw, 1.35rem); line-height: 1.55; color: var(--deep-brown); max-width: none; }
+.ge-quote cite { color: var(--gold-ink); letter-spacing: 0.16em; }
+
+/* Quick links below the gallery */
+div:has(> a[href^="pages/hair-culture.html#"]) { gap: 1rem !important; margin-top: 4rem !important; }
+a[href^="pages/hair-culture.html#"] {
+  border-radius: var(--r-lg);
+  padding: 2rem 1.5rem !important;
+  border: 1px solid rgba(200, 118, 10, 0.3) !important;
+  background: rgba(255, 255, 255, 0.72) !important;
+  transition: transform 0.6s var(--ease-out), box-shadow 0.6s var(--ease-out), border-color 0.4s var(--ease-out);
+}
+a[href^="pages/hair-culture.html#"] .label { color: var(--gold-ink) !important; letter-spacing: 0.2em; }
+a[href^="pages/hair-culture.html#"]:hover {
+  transform: translateY(-5px);
+  border-color: var(--muted-gold) !important;
+  box-shadow: 0 26px 40px -28px rgba(var(--shadow-tint), 0.55);
+}
+
+/* ---------- Community, newsletter, closing ---------- */
+.social-section { padding-top: clamp(4rem, 8vw, 7rem); }
+.social-links { gap: 0.85rem; }
+.newsletter-section { border-top: 1px solid rgba(200, 118, 10, 0.18); }
+.newsletter-form { max-width: 520px; }
+.newsletter-form input[type="email"] {
+  border-radius: 999px;
+  border: 1px solid #A98C63;
+  background: var(--white);
+  padding: 1rem 1.5rem;
+  transition: border-color 0.4s var(--ease-out), box-shadow 0.4s var(--ease-out);
+}
+.newsletter-form input[type="email"]::placeholder { color: var(--text-muted); opacity: 1; }
+.newsletter-form input[type="email"]:focus {
+  border-color: var(--muted-gold);
+  box-shadow: 0 0 0 4px rgba(200, 118, 10, 0.18);
+}
+.closing-section {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(5.5rem, 12vw, 10rem) 0;
+  background:
+    radial-gradient(ellipse 60% 70% at 85% 10%, rgba(232, 160, 32, 0.22), transparent 60%),
+    radial-gradient(ellipse 50% 60% at 5% 100%, rgba(200, 118, 10, 0.16), transparent 60%),
+    var(--deep-brown);
+}
+.closing-section h2 {
+  font-size: clamp(2.2rem, 5.4vw, 4.4rem);
+  line-height: 1.06;
+  letter-spacing: -0.025em;
+  margin-bottom: 1.5rem;
+}
+.closing-section p { color: rgba(229, 212, 184, 0.92); max-width: 46ch; }
+
+/* ---------- Footer ---------- */
+.site-footer { padding: 5rem 0 2.25rem; border-top: 1px solid rgba(200, 118, 10, 0.28); }
+.footer-brand p, .footer-bottom { color: rgba(229, 212, 184, 0.78); }
+.footer-col a { color: rgba(229, 212, 184, 0.92); }
+.footer-col a:hover { color: var(--soft-gold); }
+.footer-col h4 { letter-spacing: 0.18em; }
+.footer-bottom { border-top-color: rgba(229, 212, 184, 0.14); }
+
+/* ---------- Shared cards on inner pages follow the same radius scale ---------- */
+.product-card, .culture-card, .article-card, .contact-card,
+.articles-grid a.article-card, .hc-featured, .hc-closing, .order-box { border-radius: var(--r-lg); }
+.product-card:hover, .articles-grid a.article-card:hover { box-shadow: 0 28px 44px -30px rgba(var(--shadow-tint), 0.5); }
+.editorial-frame, .essay-hero, .hc-featured-media { border-radius: var(--r-lg); }
+.category-nav a { border-radius: 999px; }
+.page-hero { padding-top: 160px; }
+
+/* ---------- Focus ---------- */
+a:focus-visible, button:focus-visible, input:focus-visible {
+  outline: 2px solid var(--muted-gold);
+  outline-offset: 4px;
+  border-radius: 999px;
+}
+
+/* ---------- Tablet and mobile ---------- */
+@media (max-width: 900px) {
+  .site-header { top: 10px; width: calc(100% - 1.25rem); }
+  .site-header .nav-inner { height: 58px; padding: 0 0.75rem 0 1.25rem; }
+  .site-header .nav-links {
+    top: calc(100% + 0.6rem) !important;
+    border: 1px solid rgba(232, 160, 32, 0.3) !important;
+    border-radius: var(--r-lg);
+    box-shadow: 0 30px 50px -24px rgba(var(--shadow-tint), 0.7);
+  }
+  .hero { padding-top: 88px; min-height: auto; }
+  .hero-grid { min-height: auto; gap: 2rem; }
+  .hero h1 { max-width: none; }
+  .hero-image {
+    height: auto;
+    min-height: 340px;
+    outline-offset: 6px;
+    margin: 0 6px;
+  }
+  .hero:not(.hero-mirror) .hero-image::after,
+  .hero.hero-mirror .hero-image::after,
+  .hero-mirror .hero-image::after { display: none !important; }
+  .hero-content > div[style*="margin-bottom:2rem"] { margin-bottom: 1.25rem !important; }
+  .story-image { outline-offset: 6px; margin-left: 6px; margin-right: 6px; }
+  div:has(> a[href^="pages/hair-culture.html#"]) { grid-template-columns: 1fr !important; margin-top: 2.5rem !important; }
+  a[href^="pages/hair-culture.html#"] { padding: 1.5rem 1.25rem !important; }
+  .ge-photo, .ge-tall, .ge-quote { border-radius: var(--r-sm); }
+  .btn { padding: 1rem 1.6rem; }
+}
+
+/* ---------- Motion safety ---------- */
+@media (prefers-reduced-motion: reduce) {
+  .site-header .nav-links a::after,
+  a.pillar, a[href^="pages/hair-culture.html#"], .ge-photo img, .hero-image img {
+    transition: none !important;
+    transform: none !important;
   }
 }
