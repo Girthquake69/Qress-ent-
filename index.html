@@ -1,6 +1,26 @@
 <!DOCTYPE html>
 <html lang="en" class="splash-lock">
 <head>
+  <script>
+    try {
+      if (!/[?&]replay/.test(location.search)) {
+        var nav = performance.getEntriesByType && performance.getEntriesByType("navigation")[0];
+        var type = nav ? nav.type : "navigate";
+        var skip = false;
+        if (type === "back_forward") skip = true;
+        else if (type !== "reload" && document.referrer) {
+          try {
+            if (new URL(document.referrer).origin === location.origin) skip = true;
+          } catch (e) {}
+        }
+        if (skip) {
+          document.documentElement.classList.add("splash-skip");
+          document.documentElement.classList.remove("splash-lock");
+        }
+      }
+    } catch (e) {}
+  </script>
+
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Qress-ent | African Hair Care & Identity</title>
@@ -43,7 +63,7 @@
         <div class="ambient"></div>
         <div class="glow"></div>
         <div class="orbit"><div class="arc"></div></div>
-        <img class="portrait" src="images/founder-catherine.jpg" alt="" width="500" height="800" decoding="async" fetchpriority="high">
+        <img class="portrait" src="images/file.png" alt="" width="500" height="800" decoding="async" fetchpriority="high">
         <div class="ring">
           <div class="slot" style="--a:0deg"><span class="word">Sankofa</span></div>
           <div class="slot" style="--a:72deg"><span class="word">Elimu</span></div>
