@@ -1,32 +1,74 @@
 /**
- * Qress-ent splash — orbit values, portrait, split curtains
- * Plays every visit (no data-once). Use ?replay for debug hold.
+ * Qress-ent splash — orbit values, portrait, smooth fade exit
+ * Plays on first entry + browser refresh.
+ * Skips when arriving via in-site navigation (e.g. Home link).
+ * Force with ?replay
  */
 (function () {
   "use strict";
 
-  var KEY = "qress-splash-seen";
   var debug = /[?&]replay/.test(location.search);
+
+  function clearSplashLocks() {
+    document.documentElement.classList.remove("splash-lock");
+    document.body.classList.remove("splash-active");
+  }
+
+  function removeSplashEl() {
+    var root = document.getElementById("splash");
+    if (root && root.parentNode) root.remove();
+  }
+
+  /** Should this page load show the splash? */
+  function shouldPlaySplash() {
+    if (debug) return true;
+    try {
+      var entries = performance.getEntriesByType("navigation");
+      var nav = entries && entries[0];
+      var type = nav ? nav.type : "navigate"; // navigate | reload | back_forward | prerender
+      // Browser refresh → always play
+      if (type === "reload") return true;
+      // Back/forward → skip (already saw site)
+      if (type === "back_forward") return false;
+      // Link / typed URL / external: skip only if came from same site (Home, etc.)
+      var ref = document.referrer || "";
+      if (ref) {
+        try {
+          var refOrigin = new URL(ref).origin;
+          if (refOrigin === location.origin) return false;
+        } catch (e) {}
+      }
+      return true;
+    } catch (e) {
+      return true;
+    }
+  }
+
+  if (!shouldPlaySplash()) {
+    clearSplashLocks();
+    document.documentElement.classList.add("splash-skip");
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", removeSplashEl, { once: true });
+    } else {
+      removeSplashEl();
+    }
+    return;
+  }
 
   function boot() {
     var root = document.getElementById("splash");
     var html = document.documentElement;
     if (!root) {
-      document.body.classList.remove("splash-active");
-      html.classList.remove("splash-lock");
+      clearSplashLocks();
       return;
     }
     if (typeof gsap === "undefined") {
-      document.body.classList.remove("splash-active");
-      html.classList.remove("splash-lock");
+      clearSplashLocks();
       root.remove();
       return;
     }
 
     var q = function (s) { return root.querySelector(s); };
-    var content = q(".content");
-    var panelL = q(".panel-l");
-    var panelR = q(".panel-r");
     var ambient = q(".ambient");
     var glow = q(".glow");
     var flare = q(".flare");
@@ -47,18 +89,15 @@
     var state = "playing";
 
     function release() {
-      html.classList.remove("splash-lock");
-      document.body.classList.remove("splash-active");
+      clearSplashLocks();
       if (root.parentNode) root.remove();
       document.dispatchEvent(new CustomEvent("splash:done"));
     }
 
     function finish() {
-      try { sessionStorage.setItem(KEY, "1"); } catch (e) {}
       if (debug) {
         state = "done";
-        html.classList.remove("splash-lock");
-        document.body.classList.remove("splash-active");
+        clearSplashLocks();
         root.classList.add("is-done");
         if (btn) {
           btn.textContent = "Replay";
@@ -140,9 +179,7 @@
         .to(tagline, { opacity: 1, duration: 0.8 }, "lockup+=.6")
         .addLabel("exit", "lockup+=2.1")
         .to(btn, { opacity: 0, duration: 0.3 }, "exit")
-        .to(content, { opacity: 0, scale: 1.03, duration: 0.5, ease: "power2.in" }, "exit")
-        .to(panelL, { xPercent: -100, duration: 0.9, ease: "power3.inOut" }, "exit+=.3")
-        .to(panelR, { xPercent: 100, duration: 0.9, ease: "power3.inOut" }, "exit+=.3");
+        .to(root, { opacity: 0, duration: 0.85, ease: "power2.inOut" }, "exit");
 
       return t;
     }
@@ -154,7 +191,7 @@
       return gsap.timeline({ onComplete: finish })
         .to(brand, { opacity: 1, duration: 0.5 }, 0)
         .to(btn, { opacity: 1, duration: 0.3 }, 0)
-        .to(root, { opacity: 0, duration: 0.4 }, 1.9);
+        .to(root, { opacity: 0, duration: 0.55, ease: "power2.inOut" }, 1.9);
     }
 
     var imgReady = Promise.resolve();
