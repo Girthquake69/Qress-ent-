@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="splash-lock">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -31,42 +31,42 @@
   <script src="js/splash.js" defer></script>
 </head>
 <body class="splash-active">
-  <!-- CINEMATIC SPLASH: heritage → gravity → identity → Qress-ent -->
-  <div class="splash" id="splash" role="dialog" aria-modal="true" aria-label="Qress-ent introduction">
-    <div class="splash__backdrop" aria-hidden="true"></div>
-    <div class="heritage-pattern" id="heritagePattern" aria-hidden="true"></div>
-    <div class="grain" aria-hidden="true"></div>
-    <div class="ambient-glow" id="ambientGlow" aria-hidden="true"></div>
+  <!-- SPLASH: orbit values + portrait + split curtains -->
+  <div class="splash" id="splash" role="status">
+    <p class="sr">Qress-ent. Hair is an Identity.</p>
+    <div class="panel panel-l"></div>
+    <div class="panel panel-r"></div>
 
-    <div class="stage">
-      <div class="orbit-system" id="orbitSystem" aria-hidden="true">
-        <div class="orbit-line" id="orbitLine"></div>
-        <svg class="orbit-stroke" id="orbitStroke" viewBox="0 0 100 100" aria-hidden="true">
-          <path id="orbitPath" d="M 10 50 C 12 18, 39 1, 67 10 C 92 18, 101 44, 87 70 C 75 91, 42 99, 18 80 C 4 69, 3 55, 10 50" />
-        </svg>
-        <div class="orbit-light" id="orbitLight"></div>
-        <div class="values" id="values">
-          <span class="value">Sankofa</span>
-          <span class="value">Elimu</span>
-          <span class="value">Ubuntu</span>
-          <span class="value">Kimuntu</span>
-          <span class="value">Ase</span>
+    <div class="content" aria-hidden="true">
+      <div class="atmos"></div>
+      <div class="stage">
+        <div class="ambient"></div>
+        <div class="glow"></div>
+        <div class="orbit"><div class="arc"></div></div>
+        <img class="portrait" src="images/founder-catherine.jpg" alt="" width="500" height="800" decoding="async" fetchpriority="high">
+        <div class="ring">
+          <div class="slot" style="--a:0deg"><span class="word">Sankofa</span></div>
+          <div class="slot" style="--a:72deg"><span class="word">Elimu</span></div>
+          <div class="slot" style="--a:144deg"><span class="word">Ubuntu</span></div>
+          <div class="slot" style="--a:216deg"><span class="word">Kimuntu</span></div>
+          <div class="slot" style="--a:288deg"><span class="word">Ase</span></div>
         </div>
-        <div class="identity-core" id="identityCore"></div>
+        <div class="core"></div>
+        <div class="core-ring"></div>
+        <div class="flare"></div>
+        <div class="brand">
+          <div class="brand-name">Qress-ent</div>
+          <div class="divider"></div>
+          <div class="tagline">Hair is an Identity</div>
+        </div>
       </div>
-
-      <div class="brand-lockup" id="brandLockup">
-        <h1 class="brand-title" id="brandTitle">Qress-ent</h1>
-        <div class="brand-divider" id="brandDivider" aria-hidden="true"></div>
-        <p class="tagline" id="tagline"><span>Hair is an Identity</span></p>
-      </div>
+      <div class="grain"></div>
     </div>
 
-    <div class="splash__curtain" id="splashCurtain" aria-hidden="true"></div>
+    <button class="btn-skip" type="button">Skip intro</button>
   </div>
 
-  <!-- HEADER -->
-  <header class="site-header">
+<header class="site-header">
     <div class="container nav-inner">
       <a href="index.html" class="logo" style="display:flex;align-items:center;">
         <img src="images/logo-icon.png" alt="Qress-ent" style="height:56px;width:auto;display:block;">
