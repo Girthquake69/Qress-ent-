@@ -1,273 +1,245 @@
-/* Qress-ent cinematic splash — orbit / gravity / identity */
+/* Qress-ent splash — orbit values + portrait + split curtains */
+html.splash-lock,
+html.splash-lock body {
+  height: 100%;
+  overflow: hidden;
+}
 body.splash-active {
   overflow: hidden;
   touch-action: none;
 }
+.splash-skip .splash { display: none !important; }
 
 .splash {
   position: fixed;
   inset: 0;
   z-index: 9999;
-  display: grid;
-  place-items: center;
   overflow: hidden;
-  isolation: isolate;
-  background: #120904;
-  --bg: #1c1009;
-  --bg-deep: #120904;
-  --brown: #4a2408;
+  --bg: #0d0603;
   --cream: #fdf5e8;
   --cream-soft: #e9dfd1;
   --gold: #c8760a;
-  --gold-soft: #e8a020;
-  --orbit-size: clamp(300px, 44vw, 440px);
-  --stage-width: 980px;
+  --gold-light: #e8a020;
+  --gold-bright: #f6c76a;
+  --s: min(92vw, 92svh, 820px);
+  --r: calc(var(--s) * .4);
+  --serif: "Playfair Display", Georgia, serif;
+  --sans: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
   color: var(--cream);
-  font-family: "Inter", system-ui, sans-serif;
+  font-family: var(--sans);
+  -webkit-font-smoothing: antialiased;
+}
+.splash.is-done { pointer-events: none; }
+
+.splash .panel {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 50.2%;
+  background: var(--bg);
+}
+.splash .panel-l { left: 0; }
+.splash .panel-r { right: 0; }
+
+.splash .content {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
 }
 
-.splash__backdrop,
-.splash__curtain {
+.splash .atmos {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle at 50% 50%, #211108 0%, rgba(19,9,3,.6) 45%, transparent 80%);
+}
+.splash .grain {
   position: absolute;
   inset: 0;
   pointer-events: none;
-}
-
-.splash__backdrop {
-  z-index: 0;
-  background:
-    radial-gradient(circle at 50% 48%, rgba(232, 160, 32, 0.035) 0%, rgba(232, 160, 32, 0.012) 17%, transparent 57%),
-    radial-gradient(circle at 50% 50%, transparent 24%, rgba(7, 3, 1, 0.45) 78%, rgba(7, 3, 1, 0.78) 100%),
-    linear-gradient(180deg, #120904, #1c1009);
-}
-
-.splash__curtain {
-  z-index: 5;
-  background: #4a2408;
-  transform: translateY(100%);
-  will-change: transform;
-}
-
-.splash .heritage-pattern {
-  position: absolute;
-  inset: -18%;
-  z-index: 0;
-  opacity: 0;
-  pointer-events: none;
-  background:
-    linear-gradient(45deg, transparent 47%, rgba(253, 245, 232, 0.055) 48%, transparent 49%),
-    linear-gradient(-45deg, transparent 47%, rgba(253, 245, 232, 0.035) 48%, transparent 49%);
-  background-size: 86px 86px;
-  transform: rotate(45deg) scale(1.08);
-  mask-image: radial-gradient(circle, black 0%, transparent 68%);
-  -webkit-mask-image: radial-gradient(circle, black 0%, transparent 68%);
-  will-change: opacity, transform;
-}
-
-.splash .grain {
-  position: absolute;
-  inset: -50%;
-  z-index: 1;
-  opacity: 0.045;
-  pointer-events: none;
-  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.75'/%3E%3C/svg%3E");
-  background-size: 180px 180px;
-  mix-blend-mode: soft-light;
-}
-
-.splash .ambient-glow {
-  position: absolute;
-  z-index: 2;
-  width: min(35vw, 460px);
-  aspect-ratio: 1;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(232, 160, 32, 0.13) 0%, rgba(232, 160, 32, 0.035) 23%, transparent 68%);
-  opacity: 0;
-  filter: blur(2px);
-  pointer-events: none;
-  will-change: opacity, transform;
+  opacity: .05;
+  background: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E") 0 0 / 180px;
 }
 
 .splash .stage {
   position: relative;
-  z-index: 3;
-  width: min(100%, var(--stage-width));
-  height: min(640px, 100vh);
+  width: var(--s);
+  height: var(--s);
   display: grid;
+  grid-template: minmax(0, 1fr) / minmax(0, 1fr);
   place-items: center;
-  padding: 2rem;
+}
+.splash .stage > * {
+  grid-area: 1 / 1;
+  place-self: center;
 }
 
-.splash .orbit-system {
-  position: absolute;
-  width: var(--orbit-size);
-  height: var(--orbit-size);
-  display: grid;
-  place-items: center;
-  transform-origin: center;
-  will-change: transform, opacity;
+.splash .ambient,
+.splash .glow,
+.splash .flare,
+.splash .orbit,
+.splash .portrait,
+.splash .core,
+.splash .core-ring,
+.splash .brand {
+  opacity: 0;
 }
 
-.splash .orbit-line {
-  position: absolute;
-  inset: 0;
-  border: 1px solid rgba(232, 160, 32, 0.16);
+.splash .ambient {
+  width: calc(var(--s) * .95);
+  aspect-ratio: 1;
   border-radius: 50%;
-  opacity: 0;
-  transform: rotate(-9deg) scale(0.93, 0.99);
-  box-shadow: 0 0 26px rgba(232, 160, 32, 0.018);
-  will-change: opacity, transform;
+  background: radial-gradient(circle, rgba(232,160,32,.14) 0%, rgba(200,118,10,.06) 35%, transparent 70%);
 }
-
-.splash .orbit-line::before {
-  content: "";
-  position: absolute;
-  inset: -7px 5%;
-  border: 1px solid rgba(253, 245, 232, 0.045);
+.splash .glow {
+  width: calc(var(--s) * .5);
+  aspect-ratio: 1;
   border-radius: 50%;
-  transform: rotate(13deg) scaleY(0.72);
+  background: radial-gradient(circle, rgba(232,160,32,.2), transparent 68%);
 }
-
-.splash .orbit-stroke {
-  position: absolute;
-  inset: -7%;
-  width: 114%;
-  height: 114%;
-  overflow: visible;
-  opacity: 0;
-  will-change: opacity, transform;
-}
-
-.splash .orbit-stroke path {
-  fill: none;
-  stroke: rgba(232, 160, 32, 0.48);
-  stroke-width: 0.65;
-  stroke-linecap: round;
-  stroke-dasharray: 1 7;
-  vector-effect: non-scaling-stroke;
-}
-
-.splash .orbit-light {
-  position: absolute;
-  width: 5px;
-  height: 5px;
+.splash .flare {
+  width: calc(var(--s) * .55);
+  aspect-ratio: 1;
   border-radius: 50%;
-  background: rgba(253, 245, 232, 0.9);
-  box-shadow: 0 0 7px rgba(232, 160, 32, 0.55), 0 0 18px rgba(232, 160, 32, 0.22);
-  opacity: 0;
-  transform: translate(0, -50%);
-  will-change: opacity, transform;
+  background: radial-gradient(circle, rgba(253,245,232,.95) 0%, rgba(232,160,32,.45) 18%, transparent 62%);
 }
 
-.splash .values {
+.splash .orbit {
+  position: relative;
+  width: calc(var(--r) * 2);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  border: 1px solid rgba(232,160,32,.25);
+}
+.splash .arc {
   position: absolute;
-  inset: 0;
-  transform-origin: center;
-  will-change: transform, opacity;
+  inset: -1px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  border-top-color: var(--gold-light);
 }
 
-.splash .value {
-  position: absolute;
-  color: var(--cream);
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(1.05rem, 2.8vw, 1.78rem);
-  font-weight: 400;
-  font-style: italic;
-  letter-spacing: 0.055em;
-  white-space: nowrap;
-  opacity: 0;
-  transform-origin: center;
-  filter: blur(5px);
-  will-change: opacity, transform, filter;
+.splash .portrait {
+  width: calc(var(--s) * .46);
+  height: auto;
+  aspect-ratio: 5 / 8;
+  object-fit: contain;
+  -webkit-mask-image: radial-gradient(ellipse 60% 55% at 50% 45%, #000 55%, transparent 100%);
+  mask-image: radial-gradient(ellipse 60% 55% at 50% 45%, #000 55%, transparent 100%);
 }
 
-.splash .value:nth-child(1) { left: 50%; top: 0; }
-.splash .value:nth-child(2) { right: -9px; top: 27%; }
-.splash .value:nth-child(3) { right: 10%; bottom: 7%; }
-.splash .value:nth-child(4) { left: 10%; bottom: 7%; }
-.splash .value:nth-child(5) { left: -9px; top: 27%; }
-
-.splash .identity-core {
-  position: absolute;
-  width: 3px;
-  height: 3px;
+.splash .core {
+  width: 6px;
+  height: 6px;
   border-radius: 50%;
   background: var(--cream);
-  box-shadow:
-    0 0 9px rgba(253, 245, 232, 0.95),
-    0 0 26px rgba(232, 160, 32, 0.48),
-    0 0 56px rgba(232, 160, 32, 0.19);
-  opacity: 0.12;
-  transform: scale(0.65);
-  will-change: opacity, transform;
+  box-shadow: 0 0 10px var(--cream), 0 0 28px var(--gold-light);
+}
+.splash .core-ring {
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  border: 1px solid var(--gold-light);
 }
 
-.splash .brand-lockup {
+.splash .ring {
+  position: relative;
+  width: 0;
+  height: 0;
+}
+.splash .slot {
   position: absolute;
-  z-index: 4;
+  left: 0;
+  top: 0;
+  width: 0;
+  height: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transform: rotate(var(--a)) translateY(calc(var(--r) * -1)) rotate(calc(var(--a) * -1));
+}
+.splash .word {
+  opacity: 0;
+  white-space: nowrap;
+  font: italic 400 clamp(1.3rem, 3.6vmin, 2.2rem)/1 var(--serif);
+  letter-spacing: .14em;
+  color: var(--cream);
+  text-shadow: 0 0 14px var(--bg), 0 0 14px var(--bg), 0 0 4px var(--bg), 0 0 32px rgba(232,160,32,.35);
+}
+
+.splash .brand {
   display: flex;
   flex-direction: column;
   align-items: center;
-  visibility: hidden;
-  opacity: 0;
+  gap: 1rem;
+  width: max-content;
+  max-width: 92vw;
   text-align: center;
-  transform: translateY(10px) scale(0.965);
-  will-change: opacity, transform;
 }
-
-.splash .brand-title {
-  position: relative;
-  display: inline-block;
-  color: transparent;
-  background: linear-gradient(110deg, var(--cream) 0%, var(--gold-soft) 42%, var(--gold) 53%, var(--cream) 66%, var(--cream) 100%);
-  background-size: 250% 100%;
-  background-position: 110% 50%;
-  background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  font-family: "Playfair Display", Georgia, serif;
-  font-size: clamp(3.45rem, 9.5vw, 6.5rem);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  line-height: 1.05;
+.splash .brand-name {
+  font: 600 clamp(2.75rem, 10.5vw, 6.5rem)/1.05 var(--serif);
+  letter-spacing: .02em;
+  white-space: nowrap;
+  color: var(--cream);
+  background: linear-gradient(105deg, var(--cream) 0 38%, var(--gold-bright) 50%, var(--cream) 62% 100%) 100% 50% / 250% 100%;
 }
-
-.splash .brand-divider {
-  width: 0;
-  height: 1px;
-  margin: 1.55rem 0 1.15rem;
-  background: linear-gradient(90deg, transparent, var(--gold-soft) 28%, var(--gold) 72%, transparent);
-  will-change: width;
-}
-
-.splash .tagline {
-  color: var(--cream-soft);
-  font-size: clamp(0.7rem, 2vw, 0.96rem);
-  font-weight: 300;
-  letter-spacing: 0.34em;
-  line-height: 1.5;
-  text-transform: uppercase;
-  opacity: 0;
-  clip-path: inset(0 16% 0 16%);
-  will-change: opacity, clip-path;
-}
-
-.splash .tagline span { display: inline-block; }
-
-@media (max-width: 600px) {
-  .splash {
-    --orbit-size: min(78vw, 350px);
+@supports (background-clip: text) or (-webkit-background-clip: text) {
+  .splash .brand-name {
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
-  .splash .stage { padding-inline: 1rem; }
-  .splash .value { font-size: clamp(0.9rem, 4.2vw, 1.18rem); }
-  .splash .value:nth-child(1) { top: 1%; }
-  .splash .value:nth-child(2) { right: -2px; }
-  .splash .value:nth-child(5) { left: -2px; }
-  .splash .brand-title { font-size: clamp(2.9rem, 14vw, 4.7rem); }
-  .splash .tagline { max-width: 90vw; letter-spacing: 0.23em; }
-  .splash .heritage-pattern { background-size: 62px 62px; }
+}
+.splash .divider {
+  align-self: stretch;
+  height: 1px;
+  transform: scaleX(0);
+  background: linear-gradient(90deg, transparent, var(--gold-light), transparent);
+}
+.splash .tagline {
+  opacity: 0;
+  font: 300 clamp(.85rem, 2.4vw, 1.05rem)/1.4 var(--sans);
+  letter-spacing: .14em;
+  color: var(--cream-soft);
 }
 
-@media (max-height: 680px) {
-  .splash .stage { transform: scale(0.9); }
+.splash .btn-skip {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin-inline: auto;
+  width: max-content;
+  bottom: max(1.5rem, env(safe-area-inset-bottom));
+  min-height: 44px;
+  padding: 0 1.25rem;
+  opacity: 0;
+  font: 400 .85rem/1 var(--sans);
+  letter-spacing: .08em;
+  color: var(--cream);
+  background: rgba(253,245,232,.06);
+  border: 1px solid rgba(253,245,232,.35);
+  border-radius: 999px;
+  cursor: pointer;
+  transition: background .2s, border-color .2s, transform .15s;
+  z-index: 6;
+}
+.splash .btn-skip:hover {
+  background: rgba(232,160,32,.14);
+  border-color: var(--gold-light);
+}
+.splash .btn-skip:active { transform: scale(.97); }
+.splash .btn-skip:focus-visible {
+  opacity: 1 !important;
+  outline: 2px solid var(--gold-bright);
+  outline-offset: 3px;
+}
+.splash.is-done .btn-skip { pointer-events: auto; }
+
+.splash .sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
 }
