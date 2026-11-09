@@ -1,4 +1,4 @@
-# Qress-ent Website — Version 1
+# Qress-ent Website: Version 1
 
 Premium African hair-care brand website built according to the full design & development brief.
 
@@ -11,12 +11,14 @@ Premium African hair-care brand website built according to the full design & dev
 ## What’s included
 
 ### Public pages
-- `index.html` — Homepage (hero, featured products, pillars, story preview, Hair & Culture, social, closing CTA)
-- `pages/shop.html` — Product catalogue
-- `pages/product.html` — Product detail template (tabs, WhatsApp order)
-- `pages/our-story.html` — Brand & founders story
-- `pages/hair-culture.html` — Educational content categories (Hair Care / Hairstyles / Culture)
-- `pages/contact.html` — WhatsApp + Linktree contact
+- `index.html`: Homepage (hero, featured products, pillars, story preview, Hair & Culture, social, closing CTA)
+- `pages/shop.html`: Product catalogue
+- `pages/product.html`: Product detail template (tabs, WhatsApp order)
+- `pages/our-story.html`: Brand & founders story
+- `pages/what-we-do.html`: Detangling service page
+- `pages/hair-culture.html`: Articles by category, plus the "Hair Is an Identity" essay (`#identity`)
+- `pages/identity.html`: Redirect stub to `hair-culture.html#identity` so old links keep working
+- `pages/contact.html`: WhatsApp + Linktree contact
 
 ### Design system
 - Temporary premium earth palette (cream, deep brown, muted gold, charcoal)
@@ -33,8 +35,8 @@ Premium African hair-care brand website built according to the full design & dev
 - Product tabs on detail page
 
 ### Data
-- `data/products.json` — Placeholder products (clearly marked)
-- `data/articles.json` — Placeholder articles
+- `data/products.json`: Placeholder products (clearly marked)
+- `data/articles.json`: Placeholder articles
 
 ### Placeholders (do not invent real data)
 All product names, prices, ingredients, benefits, photos, email, phone, address, and Instagram/TikTok handles are marked `[PLACEHOLDER]`.  
@@ -116,6 +118,7 @@ qress-ent/
 │   ├── shop.html
 │   ├── product.html
 │   ├── our-story.html
+│   ├── what-we-do.html
 │   ├── hair-culture.html
 │   └── contact.html
 ├── images/          (add real photos here)
@@ -125,4 +128,13 @@ qress-ent/
 
 ---
 
-Built to feel like a professional African beauty-brand site — not a generic template.
+Built to feel like a professional African beauty-brand site: not a generic template.
+
+
+## Security notes
+
+- Every page ships a Content-Security-Policy meta tag: scripts from `self` only, no inline script, forms restricted to `self` and the Brevo form host.
+- Inline `style` attributes are still allowed (`style-src` includes `unsafe-inline`). Moving them into CSS would let you drop it.
+- Google Fonts CSS cannot carry an SRI hash because Google serves different CSS per browser. To get full SRI coverage, self-host the fonts and remove the two Google origins from the CSP.
+- All external links use `rel="noopener noreferrer"`. Dynamic text is written with `textContent` only. Cart data from storage and `data-*` attributes is validated before use. The newsletter email field is validated before submit.
+- Set `X-Frame-Options` / `frame-ancestors`, HSTS and `X-Content-Type-Options` as real HTTP headers at your host. A meta tag cannot set them.

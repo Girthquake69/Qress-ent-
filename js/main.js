@@ -1,5 +1,5 @@
 /**
- * Qress-ent — Core frontend logic
+ * Qress-ent: Core frontend logic
  * Cart (localStorage), mobile nav, smooth interactions, WhatsApp ordering
  */
 
@@ -9,29 +9,57 @@
   // ========== CART ==========
   const CART_KEY = "qressent_order";
 
+  // Anything that comes from storage or from data-* attributes is untrusted.
+  // It is validated here and only ever written back to the page with textContent.
+  function cleanText(value, max) {
+    return String(value == null ? "" : value)
+      .replace(/[\u0000-\u001F\u007F<>]/g, "")
+      .trim()
+      .slice(0, max || 80);
+  }
+
+  function cleanItem(raw) {
+    if (!raw || typeof raw !== "object") return null;
+    const id = cleanText(raw.id, 64);
+    if (!/^[A-Za-z0-9_-]{1,64}$/.test(id)) return null;
+    const price = Number(raw.price);
+    if (!Number.isFinite(price) || price < 0 || price > 1000000) return null;
+    const currency = /^[A-Za-z]{2,4}$/.test(String(raw.currency || "")) ? String(raw.currency).toUpperCase() : "KSh";
+    const qty = Math.min(99, Math.max(1, parseInt(raw.qty, 10) || 1));
+    const name = cleanText(raw.name, 80);
+    if (!name) return null;
+    return { id: id, name: name, price: price, currency: currency, qty: qty };
+  }
+
   function getCart() {
     try {
-      return JSON.parse(localStorage.getItem(CART_KEY)) || [];
-    } catch {
+      const parsed = JSON.parse(localStorage.getItem(CART_KEY));
+      if (!Array.isArray(parsed)) return [];
+      return parsed.slice(0, 50).map(cleanItem).filter(Boolean);
+    } catch (e) {
       return [];
     }
   }
 
   function saveCart(cart) {
-    localStorage.setItem(CART_KEY, JSON.stringify(cart));
+    try {
+      localStorage.setItem(CART_KEY, JSON.stringify(cart.map(cleanItem).filter(Boolean)));
+    } catch (e) {}
     updateCartUI();
   }
 
   function addToCart(product) {
+    const item = cleanItem({ id: product.id, name: product.name, price: product.price, currency: product.currency, qty: 1 });
+    if (!item) return;
     const cart = getCart();
-    const existing = cart.find((item) => item.id === product.id);
+    const existing = cart.find((entry) => entry.id === item.id);
     if (existing) {
-      existing.qty += 1;
+      existing.qty = Math.min(99, existing.qty + 1);
     } else {
-      cart.push({ ...product, qty: 1 });
+      cart.push(item);
     }
     saveCart(cart);
-    showToast(`${product.name} added to order`);
+    showToast(item.name + " added to order");
   }
 
   function removeFromCart(id) {
@@ -51,11 +79,11 @@
   function buildWhatsAppMessage() {
     const cart = getCart();
     if (cart.length === 0) {
-      return "Hello Qress-ent, I would like to place an order.";
+      return encodeURIComponent("Hello Qress-ent, I would like to place an order.");
     }
     let msg = "Hello Qress-ent! I would like to order:\n\n";
     cart.forEach((item) => {
-      msg += `• ${item.name} × ${item.qty} — ${item.currency || "KSh"} ${item.price}\n`;
+      msg += "\u2022 " + item.name + " x " + item.qty + ": " + item.currency + " " + item.price + "\n";
     });
     msg += "\nPlease confirm availability and total. Thank you!";
     return encodeURIComponent(msg);
@@ -66,29 +94,50 @@
 
   function openWhatsAppOrder() {
     // Open chat with no pre-filled message
-    window.open(`https://wa.me/${WHATSAPP_NUMBER}`, "_blank");
+    window.open("https://wa.me/" + WHATSAPP_NUMBER, "_blank", "noopener,noreferrer");
   }
 
   // ========== TOAST ==========
+  let toastTimer = null;
   function showToast(text) {
     let toast = document.querySelector(".toast");
     if (!toast) {
       toast = document.createElement("div");
       toast.className = "toast";
-      toast.style.cssText = `
-        position: fixed; bottom: 24px; left: 50%; transform: translateX(-50%) translateY(80px);
-        background: #2C1A0E; color: #FDF5E8; padding: 12px 24px; font-size: 0.9rem;
-        border-radius: 2px; z-index: 999; transition: transform 0.3s ease; pointer-events: none;
-      `;
+      toast.setAttribute("role", "status");
+      toast.setAttribute("aria-live", "polite");
       document.body.appendChild(toast);
     }
-    toast.textContent = text;
-    requestAnimationFrame(() => {
-      toast.style.transform = "translateX(-50%) translateY(0)";
+    toast.textContent = cleanText(text, 120);
+    requestAnimationFrame(() => toast.classList.add("is-visible"));
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(() => toast.classList.remove("is-visible"), 2400);
+  }
+
+  // ========== NEWSLETTER FORM ==========
+  // The form posts straight to the email provider. We only refuse input that
+  // is malformed or carries markup/quote characters before it leaves the page.
+  const EMAIL_RE = /^[^\s@<>"'`\\]{1,64}@[^\s@<>"'`\\]{1,190}\.[^\s@<>"'`\\]{2,24}$/;
+
+  function initNewsletter() {
+    document.querySelectorAll("form.newsletter-form").forEach((form) => {
+      const input = form.querySelector('input[name="EMAIL"]');
+      if (!input) return;
+      form.setAttribute("novalidate", "");
+      form.addEventListener("submit", (e) => {
+        const value = cleanText(input.value, 254);
+        input.value = value;
+        if (!EMAIL_RE.test(value)) {
+          e.preventDefault();
+          input.setAttribute("aria-invalid", "true");
+          input.focus();
+          showToast("Please enter a valid email address");
+          return;
+        }
+        input.removeAttribute("aria-invalid");
+      });
+      input.addEventListener("input", () => input.removeAttribute("aria-invalid"));
     });
-    setTimeout(() => {
-      toast.style.transform = "translateX(-50%) translateY(80px)";
-    }, 2200);
   }
 
   // ========== MOBILE MENU ==========
@@ -111,6 +160,13 @@
 
     links.querySelectorAll("a").forEach((a) => {
       a.addEventListener("click", () => setOpen(false));
+    });
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "Escape" && links.classList.contains("open")) {
+        setOpen(false);
+        toggle.focus();
+      }
     });
 
     document.addEventListener("click", (e) => {
@@ -140,7 +196,8 @@
         parent.querySelectorAll(".tab-btn").forEach((b) => b.classList.remove("active"));
         parent.querySelectorAll(".tab-panel").forEach((p) => p.classList.remove("active"));
         btn.classList.add("active");
-        const panel = parent.querySelector(`[data-panel="${btn.dataset.tab}"]`);
+        const key = cleanText(btn.dataset.tab, 40);
+        const panel = Array.from(parent.querySelectorAll("[data-panel]")).find((el) => el.dataset.panel === key);
         if (panel) panel.classList.add("active");
       });
     });
@@ -221,6 +278,7 @@
     initMobileMenu();
     initHeaderScroll();
     initTabs();
+    initNewsletter();
     initScrollReveal();
     updateCartUI();
   });

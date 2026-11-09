@@ -1,5 +1,5 @@
 /* ==========================================================================
-   QRESS-ENT — Our Story
+   QRESS-ENT: Our Story
    Loads after styles.css and extras.css. Everything is scoped to main.os, so
    no other page is affected. Brand tokens (cream / brown / gold, Playfair +
    Outfit) come from styles.css.
@@ -621,3 +621,78 @@ main.os p.os-statement {
   html.js .os-frame:not(.in)::after { opacity: 1; }
   html.js .os-j-panel:not(.in)::before { transform: none; }
 }
+
+
+/* ==========================================================================
+   PREMIUM PASS (motionsites-web-builder)
+   Same mechanics, finer surfaces: one radius, content-height cards, a focus
+   pull along the horizontal journey, chapter counter, quieter founder quote.
+   ========================================================================== */
+main.os { --os-r: 28px; }
+
+/* hero eyebrow: follows the h1 handoff */
+.os-eyebrow {
+  position: absolute; top: clamp(5.75rem, 14vh, 8rem); left: 50%; transform: translateX(-50%); z-index: 2; white-space: nowrap; width: max-content;
+  margin: 0; display: inline-flex; align-items: center; gap: 0.9rem;
+  font-size: 0.72rem; font-weight: 500; letter-spacing: 0.28em; text-transform: uppercase;
+  color: var(--soft-gold);
+  opacity: var(--h1-o, 1);
+}
+.os-eyebrow::before, .os-eyebrow::after { content: ""; width: 2.25rem; height: 1px; background: currentColor; opacity: 0.5; }
+
+/* ---- Journey cards ---- */
+main.os .os-j-panel { border-radius: var(--os-r); }
+main.os .os-j-panel:not(.os-j-intro)::before { left: clamp(1.75rem, 2.8vw, 2.75rem); border-radius: 2px; }
+main.os .os-j-panel p { margin-top: 0; max-width: 34ch; opacity: 0.88; }
+main.os .os-j-panel h3 { text-wrap: balance; }
+@media (min-width: 901px) {
+  /* cards fit their content and sit on the stage centreline: ragged, editorial, no dead space */
+  html.os-ready:not(.os-still):not(.os-nopin) .os-j-track { align-items: center; }
+  html.os-ready:not(.os-still):not(.os-nopin) .os-j-panel { min-height: 0; }
+  html.os-ready:not(.os-still):not(.os-nopin) .os-j-intro { align-self: center; }
+  /* focus pull: --f is 1 at the viewport centre, fading as a card travels away */
+  html.os-ready:not(.os-still):not(.os-nopin) .os-j-panel:not(.os-j-intro) {
+    scale: calc(0.965 + 0.035 * var(--f, 1));
+    transition: transform 0.55s var(--os-out), box-shadow 0.55s var(--os-out), background-color 0.4s ease;
+  }
+  html.os-ready:not(.os-still):not(.os-nopin) .os-j-panel:not(.os-j-intro)::after {
+    content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+    background: rgba(30, 14, 4, 0.5);
+    opacity: calc((1 - var(--f, 1)) * 0.9);
+  }
+}
+/* chapter counter */
+.os-j-count {
+  display: none;
+}
+@media (min-width: 901px) {
+  html.os-ready:not(.os-still):not(.os-nopin) .os-j-count {
+    display: flex; align-items: baseline; gap: 0.7rem;
+    position: absolute; right: var(--os-pad); bottom: 3.1rem; z-index: 3;
+    font-size: 0.7rem; font-weight: 500; letter-spacing: 0.26em; text-transform: uppercase;
+    color: rgba(253, 245, 232, 0.55); font-variant-numeric: tabular-nums; pointer-events: none;
+  }
+  .os-j-count b { font: italic 400 1.5rem/1 var(--font-serif); letter-spacing: -0.01em; color: var(--soft-gold); }
+}
+
+/* ---- Founder ---- */
+.os-lead::first-letter { padding-right: 0.06em; }
+.os-founder-copy { position: relative; isolation: isolate; }
+.os-founder-copy::before {
+  content: ""; position: absolute; inset: -2rem -2.5rem; z-index: -1; pointer-events: none;
+  background: radial-gradient(ellipse 70% 62% at 45% 55%, rgba(253, 245, 232, 0.94) 38%, rgba(253, 245, 232, 0) 78%);
+}
+.os-pull {
+  position: relative; border-radius: var(--os-r);
+  background: linear-gradient(160deg, #EBAA2B 0%, #E09712 100%);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.35) inset, 0 24px 44px -24px rgba(139, 69, 19, 0.55);
+}
+.os-pull::before {
+  content: "\201C"; position: absolute; top: 0.6rem; right: 1.6rem;
+  font: 400 5.5rem/1 var(--font-serif); color: rgba(74, 36, 8, 0.18); pointer-events: none;
+}
+
+/* ---- Photography: one radius family ---- */
+.os-bleed img { border-radius: 0; }
+.os-frame-wide { border-radius: 999px 999px var(--os-r) var(--os-r); }
+.os-frame-tall { border-radius: 999px 999px var(--os-r) var(--os-r); }

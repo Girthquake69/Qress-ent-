@@ -2,6 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; form-action 'self' https://b720ae1b.sibforms.com; base-uri 'self'; object-src 'none'" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <script src="../js/boot.js"></script>
+  <meta name="theme-color" content="#FDF5E8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
   <title>Our Story | Qress-ent</title>
   <meta name="description" content="From Qressinah Enterprises to Qress-ent. Meet founder Engineer Catherine Juma and the twin roots of the brand." />
@@ -12,20 +17,14 @@
   <meta property="og:image" content="https://qressent.shop/images/og-image.jpg" />
   <link rel="icon" href="../images/favicon.png" type="image/png" />
   <link rel="canonical" href="https://qressent.shop/pages/our-story.html" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;0,600;1,400;1,500&display=swap" rel="stylesheet" />
-  <script>
-    /* Hidden states only apply when JS is running. If the page script has not
-       reported ready after 4s, everything is forced visible. */
-    document.documentElement.classList.add('js');
-    setTimeout(function () {
-      if (!document.documentElement.classList.contains('os-ready')) document.documentElement.classList.add('os-fail');
-    }, 4000);
-  </script>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="../css/extras.css" />
-  <link rel="stylesheet" href="../css/our-story.css" />
+    <link rel="stylesheet" href="../css/premium.css" />
+  <link rel="stylesheet" href="../css/story-portfolio.css" />
+  <script src="../js/premium.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -36,7 +35,7 @@
       <nav class="nav-links" aria-label="Main navigation">
         <a href="../index.html">Home</a>
         <a href="our-story.html" class="active">Our Story</a>
-        <a href="identity.html">Identity</a>
+        <a href="what-we-do.html">What We Do</a>
         <a href="hair-culture.html">Hair & Culture</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -48,166 +47,249 @@
     </div>
   </header>
 
-  <main class="os">
+  <main class="sp" id="main">
 
-    <!-- ============ 1. THE NAME: a pinned word that changes as you scroll ============ -->
-    <section class="os-hero" aria-labelledby="os-title">
-      <div class="os-stage">
-        <div class="os-stage-inner">
-          <h1 id="os-title" class="os-h1">From Qressinah to Qress-ent.</h1>
+    <!-- 01 HERO: inset frame, bottom-anchored headline -->
+    <section class="sp-hero" aria-labelledby="sp-title">
+      <div class="sp-hero-frame">
+        <img class="sp-hero-img" src="../images/founder-overshoulder.jpg" alt="Engineer Catherine Juma, founder of Qress-ent" fetchpriority="high">
+        <div class="sp-hero-scrim" aria-hidden="true"></div>
 
-          <div class="os-roll" aria-hidden="true"></div>
-
-          <div class="os-caps" aria-hidden="true">
-            <p class="os-cap">The twins’ nicknames: Qatrinah and Reece.</p>
-            <p class="os-cap">Fused into Qressinah Enterprises.</p>
-            <p class="os-cap">Grown into Qress-ent.</p>
-          </div>
-
-          <p class="os-lede">A cultural wellness movement founded by Engineer Catherine Juma to reconnect Africans with ancestral hair wisdom and identity.</p>
+        <div class="sp-hero-top">
+          <p class="sp-eyebrow" data-hero>Our story</p>
+          <p class="sp-eyebrow sp-eyebrow-r" data-hero>Previously Qressinah Enterprises</p>
         </div>
 
-        <a class="os-cue" href="#founder" aria-label="Scroll to the founder's story">
-          <span>Scroll</span>
-          <svg width="14" height="18" viewBox="0 0 14 18" fill="none" aria-hidden="true"><path d="M7 1v15M1.5 10.5 7 16l5.5-5.5" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <div class="sp-hero-bottom">
+          <h1 id="sp-title" class="sp-h1" data-split-lines>
+            <span class="ln"><span>From Qressinah</span></span>
+            <span class="ln"><span>to <em>Qress-ent.</em></span></span>
+          </h1>
+          <div class="sp-hero-side" data-hero>
+            <p>Founded by Engineer Catherine Juma to bring African hair wisdom back to the people it belongs to.</p>
+            <a class="sp-pill" href="#founder">Meet the founder <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 5v14M6 13l6 6 6-6"/></svg></a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 02 INDEX: the path home as a portfolio index -->
+    <section class="sp-index" id="path" aria-labelledby="sp-index-h">
+      <div class="sp-wrap">
+        <div class="sp-index-head">
+          <p class="sp-label" data-reveal>The path home</p>
+          <h2 id="sp-index-h" class="sp-h2" data-split-lines>
+            <span class="ln"><span>The long</span></span>
+            <span class="ln"><span>way <em>home.</em></span></span>
+          </h2>
+        </div>
+        <div class="sp-rows">
+        <a class="sp-row" href="#c1" data-peek="../images/value-sankofa.jpg" data-reveal>
+          <span class="sp-row-n">01</span>
+          <span class="sp-row-t">A crown to heal.</span>
+          <span class="sp-row-m">Age twelve</span>
+          <span class="sp-row-go"><svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
         </a>
-      </div>
-    </section>
-
-    <!-- ============ 2. THE FOUNDER ============ -->
-    <section class="os-founder" id="founder" aria-labelledby="os-founder-h">
-      <div class="os-wrap os-founder-grid">
-        <div class="os-portrait">
-          <div class="os-frame os-frame-tall">
-            <div class="os-fi">
-              <img data-par="0.10" src="../images/founder-catherine.jpg" alt="Engineer Ojiambo Catherine Juma – Founder of Qress-ent">
-            </div>
-          </div>
-        </div>
-
-        <div class="os-founder-copy">
-          <h2 id="os-founder-h" class="os-h2" data-split="word">Founder. Engineer. Visionary.</h2>
-          <p class="os-lead up">Qress-ent was founded by Engineer Ojiambo Catherine Juma, but long before it became a movement, it was an instinct born in childhood.</p>
-          <p class="os-pull up">“I remember I was very, very passionate about beauty and hair since I was young,” Catherine recalled in an interview. “I naturally knew how to do hair—I started doing my sister’s hair at only seven years old.”</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ============ 3. THE PATH HOME: vertical scroll drives a horizontal story ============ -->
-    <section class="os-journey" aria-labelledby="os-journey-h">
-      <div class="os-j-stage">
-        <div class="os-j-track">
-          <div class="os-j-panel os-j-intro">
-            <h2 id="os-journey-h" class="os-h2" data-split="word">The long way home.</h2>
-          </div>
-
-          <article class="os-j-panel os-j-1">
-            <span class="os-j-num" aria-hidden="true">01</span>
-            <h3 data-split="word">A crown to heal.</h3>
-            <p class="up">That intuitive gift met its hardest test when she turned twelve. A battle with chronically dry scalp, stubborn dandruff, and hair that refused to grow chipped away at her self-esteem. Product after product failed, and conventional salons only worsened the frustration. The turning point arrived after high school: following a stint with temporary locs, she made a quiet vow to stop handing her hair over to outside stylists and learn to heal it herself. Throughout university, she nurtured her own crown, discovering firsthand the transformative power of patient, informed care.</p>
-          </article>
-
-          <article class="os-j-panel os-j-2">
-            <span class="os-j-num" aria-hidden="true">02</span>
-            <h3 data-split="word">Qressinah Enterprises.</h3>
-            <p class="up">That breakthrough sparked an entrepreneurial spark. Alongside her twin sister, Tracy, she launched Qressinah Enterprises. It started small and scrappy—Tracy mastered nails, Catherine styled hair, and together they formulated and retailed liquid shampoo.</p>
-          </article>
-
-          <article class="os-j-panel os-j-3">
-            <span class="os-j-num" aria-hidden="true">03</span>
-            <h3 class="os-j-time" data-split="word">Two and a half years.</h3>
-            <p class="up">For two and a half years, the business grew, until Catherine moved to Italy to pursue her postgraduate studies. The distance shuttered the salon doors, but it unlocked an entirely different calling.</p>
-          </article>
-
-          <article class="os-j-panel os-j-4">
-            <span class="os-j-num" aria-hidden="true">04</span>
-            <h3 class="os-j-place" data-split="word">Italy.</h3>
-            <p class="up">Thousands of miles away from home, she couldn’t find kinky textured extensions, pure rosemary oil, or sulfate-free formulas. Living in Europe made her fall deeply in love with the continent she had left behind. She saw clearly how so many Africans had been conditioned to abandon their own rich heritage to blend into Western aesthetics. Embracing Afrocentric hairstyles abroad became her quiet rebellion and creative awakening.</p>
-          </article>
-
-          <article class="os-j-panel os-j-last os-j-5">
-            <span class="os-j-num" aria-hidden="true">05</span>
-            <h3 class="os-j-home" data-split="word">Home.</h3>
-            <p class="up">Realizing that everything she needed to revive and honor ancestral haircare was waiting back home, she returned. She transformed the modest beginnings of Qressinah Enterprises into Qress-ent: an unapologetic cultural movement dedicated to ancestral anthropology, clean green science, and celebrating African hair not as a problem to be corrected, but as a sacred canvas of identity.</p>
-          </article>
-        </div>
-
-        <div class="os-j-bar" aria-hidden="true"><span class="os-j-fill"></span></div>
-      </div>
-    </section>
-
-    <!-- ============ 4. MISSION ============ -->
-    <section class="os-mission" aria-labelledby="os-mission-h">
-      <div class="os-bleed">
-        <img data-par="0.14" src="../images/founder-overshoulder.jpg" alt="Catherine — close portrait">
-      </div>
-
-      <div class="os-mission-field">
-        <div class="os-wrap">
-          <h2 id="os-mission-h" class="os-mission-h" data-split="word">Hair is identity.</h2>
-          <div class="os-mission-copy">
-            <p class="os-statement fill">Our mission is to reconnect Africans globally with their identity, heritage and confidence by unearthing ancestral hair care wisdom, providing accessible education, and creating natural solutions that allow African hair to thrive.</p>
-            <p class="os-statement fill">We envision becoming the definitive global authority on African hair care and cultural preservation — sparking a generational cycle of knowledge where every African embraces their natural crown with pride, clarity and autonomy.</p>
-          </div>
+        <a class="sp-row" href="#c2" data-peek="../images/meet-the-twins.jpg" data-reveal>
+          <span class="sp-row-n">02</span>
+          <span class="sp-row-t">Qressinah Enterprises.</span>
+          <span class="sp-row-m">With her twin sister, Tracy</span>
+          <span class="sp-row-go"><svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="sp-row" href="#c3" data-peek="../images/woman-combing-man.jpg" data-reveal>
+          <span class="sp-row-n">03</span>
+          <span class="sp-row-t">Two and a half years.</span>
+          <span class="sp-row-m">The salon years</span>
+          <span class="sp-row-go"><svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="sp-row" href="#c4" data-peek="../images/hero-hair-identity.jpg" data-reveal>
+          <span class="sp-row-n">04</span>
+          <span class="sp-row-t">Italy.</span>
+          <span class="sp-row-m">Postgraduate studies</span>
+          <span class="sp-row-go"><svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
+        <a class="sp-row" href="#c5" data-peek="../images/centre-rooted-worn.jpg" data-reveal>
+          <span class="sp-row-n">05</span>
+          <span class="sp-row-t">Home.</span>
+          <span class="sp-row-m">The return</span>
+          <span class="sp-row-go"><svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+        </a>
         </div>
       </div>
     </section>
 
-    <!-- ============ 5. THE TWINS ============ -->
-    <section class="os-twins" aria-labelledby="os-twins-h">
-      <div class="os-strip" aria-hidden="true">
-        <div class="os-strip-row" data-dir="-1"><span>Qatrinah</span><span>Reece</span><span>Qatrinah</span><span>Reece</span><span>Qatrinah</span><span>Reece</span></div>
-        <div class="os-strip-row" data-dir="1"><span>Reece</span><span>Qatrinah</span><span>Reece</span><span>Qatrinah</span><span>Reece</span><span>Qatrinah</span></div>
-      </div>
-
-      <div class="os-wrap">
-        <h2 id="os-twins-h" class="os-h2 os-twins-h" data-split="word">Meet the twins.</h2>
-
-        <div class="os-twins-grid">
-          <div class="os-twins-copy">
-            <p class="up">Catherine’s journey is inseparable from her twin sister, Tracy. Their shared bond is etched into the very roots of the brand: long before Qress-ent existed, their partnership began in childhood play and grew into Qressinah Enterprises, a name born from the fusion of their nicknames, Qatrinah and Reece. It was a space built on mutual trust, where Tracy mastered nail artistry while Catherine tended to crowns.</p>
-            <p class="up">In African heritage, twins represent a sacred balance: harmony, duality, and an intertwined spiritual destiny. Tracy was Catherine’s very first client and muse at just seven years old, sitting patiently as small hands learned an ancestral craft, and she remains her client and fiercest supporter today. As the enduring face of the brand, Tracy grounds the vision in real sisterhood.</p>
-            <p class="up">That twin energy remains the heartbeat of Qress-ent, bridging ancestral memory with modern innovation and reminding the world that intentional, sacred care always begins at home.</p>
-          </div>
-
-          <div class="os-frame os-frame-wide">
-            <div class="os-fi">
-              <img data-par="0.08" src="../images/meet-the-twins.jpg" alt="Catherine and Tracy — the twins">
-            </div>
-          </div>
+    <!-- 03 FOUNDER: cream sheet slides over the dark -->
+    <section class="sp-founder" id="founder" aria-labelledby="sp-founder-h">
+      <div class="sp-wrap sp-founder-grid">
+        <figure class="sp-founder-media" data-reveal="curtain">
+          <img data-fimg src="../images/founder-catherine.jpg" alt="Engineer Ojiambo Catherine Juma: Founder of Qress-ent" loading="lazy">
+          <figcaption>Engineer Ojiambo Catherine Juma · Founder</figcaption>
+        </figure>
+        <div class="sp-founder-copy">
+          <p class="sp-label sp-label-ink" data-reveal>The founder</p>
+          <h2 id="sp-founder-h" class="sp-h2 sp-h2-ink" data-split-lines>
+            <span class="ln"><span>Founder. Engineer.</span></span>
+            <span class="ln"><span><em>Visionary.</em></span></span>
+          </h2>
+          <p class="sp-lead" data-reveal>Qress-ent was founded by Engineer Ojiambo Catherine Juma, but long before it became a movement, it was an instinct born in childhood.</p>
+          <blockquote class="sp-quote" data-reveal><p>“I remember I was very, very passionate about beauty and hair since I was young,” Catherine recalled in an interview. “I naturally knew how to do hair. I started doing my sister’s hair at only seven years old.”</p></blockquote>
         </div>
       </div>
     </section>
 
-    <!-- ============ 6. PHILOSOPHY + CLOSE ============ -->
-    <section class="os-phil" aria-labelledby="os-phil-h">
-      <div class="os-wrap">
-        <h2 id="os-phil-h" class="os-phil-h up">The Qress-ent philosophy</h2>
-        <p class="os-quote" data-split="char" data-stagger="26">“Hair is an identity.”</p>
+    <!-- 04 CHAPTERS -->
+    <section class="sp-chapters" aria-label="The five chapters">
+      <div class="sp-wrap">
+      <article class="sp-ch" id="c1">
+        <div class="sp-ch-head">
+          <span class="sp-ch-n" aria-hidden="true">01</span>
+        </div>
+        <div class="sp-ch-body">
+          <p class="sp-tag" data-reveal>Age twelve</p>
+          <h3 class="sp-ch-h" data-split-lines><span class="ln"><span>A crown to heal.</span></span></h3>
+          <p class="sp-ch-p" data-reveal>That intuitive gift met its hardest test when she turned twelve. A battle with chronically dry scalp, stubborn dandruff, and hair that refused to grow chipped away at her self-esteem. Product after product failed, and conventional salons only worsened the frustration. The turning point arrived after high school: following a stint with temporary locs, she made a quiet vow to stop handing her hair over to outside stylists and learn to heal it herself. Throughout university, she nurtured her own crown, discovering firsthand the transformative power of patient, informed care.</p>
+        </div>
+        <figure class="sp-ch-media" data-reveal="curtain"><img src="../images/value-sankofa.jpg" alt="Braided crown seen from behind" loading="lazy"></figure>
+      </article>
+      <article class="sp-ch sp-ch-flip sp-ch-nomedia" id="c2">
+        <div class="sp-ch-head">
+          <span class="sp-ch-n" aria-hidden="true">02</span>
+        </div>
+        <div class="sp-ch-body">
+          <p class="sp-tag" data-reveal>With her twin sister, Tracy</p>
+          <h3 class="sp-ch-h" data-split-lines><span class="ln"><span>Qressinah Enterprises.</span></span></h3>
+          <p class="sp-ch-p" data-reveal>That breakthrough turned into a business. Alongside her twin sister, Tracy, she launched Qressinah Enterprises. It started small and scrappy. Tracy mastered nails, Catherine styled hair, and together they formulated and retailed liquid shampoo.</p>
+        </div>
+        
+      </article>
+      <article class="sp-ch" id="c3">
+        <div class="sp-ch-head">
+          <span class="sp-ch-n" aria-hidden="true">03</span>
+        </div>
+        <div class="sp-ch-body">
+          <p class="sp-tag" data-reveal>The salon years</p>
+          <h3 class="sp-ch-h" data-split-lines><span class="ln"><span>Two and a half years.</span></span></h3>
+          <p class="sp-ch-p" data-reveal>For two and a half years, the business grew, until Catherine moved to Italy to pursue her postgraduate studies. The distance closed the salon and opened something else.</p>
+        </div>
+        <figure class="sp-ch-media" data-reveal="curtain"><img src="../images/woman-combing-man.jpg" alt="Catherine styling a client’s hair" loading="lazy"></figure>
+      </article>
+      <article class="sp-ch sp-ch-flip sp-ch-nomedia" id="c4">
+        <div class="sp-ch-head">
+          <span class="sp-ch-n" aria-hidden="true">04</span>
+        </div>
+        <div class="sp-ch-body">
+          <p class="sp-tag" data-reveal>Postgraduate studies</p>
+          <h3 class="sp-ch-h" data-split-lines><span class="ln"><span>Italy.</span></span></h3>
+          <p class="sp-ch-p" data-reveal>Thousands of miles away from home, she couldn’t find kinky textured extensions, pure rosemary oil, or sulfate-free formulas. Living in Europe made her fall deeply in love with the continent she had left behind. She saw clearly how so many Africans had been conditioned to abandon their own rich heritage to blend into Western aesthetics. Embracing Afrocentric hairstyles abroad became her quiet rebellion and creative awakening.</p>
+        </div>
+        
+      </article>
+      <article class="sp-ch sp-ch-last" id="c5">
+        <div class="sp-ch-head">
+          <span class="sp-ch-n" aria-hidden="true">05</span>
+        </div>
+        <div class="sp-ch-body">
+          <p class="sp-tag" data-reveal>The return</p>
+          <h3 class="sp-ch-h" data-split-lines><span class="ln"><span>Home.</span></span></h3>
+          <p class="sp-ch-p" data-reveal>Realizing that everything she needed to revive and honor ancestral haircare was waiting back home, she returned. She transformed the modest beginnings of Qressinah Enterprises into Qress-ent: a brand built on ancestral research, clean green science and one plain belief: African hair is not a problem to correct.</p>
+        </div>
+        <figure class="sp-ch-media" data-reveal="curtain"><img src="../images/centre-rooted-worn.jpg" alt="Rooted in heritage, worn with pride" loading="lazy"></figure>
+      </article>
+      </div>
+    </section>
 
-        <div class="os-phil-grid">
-          <p class="os-phil-lead up">Qress-ent is not a cosmetics company. It is a cultural tech and wellness movement.</p>
+    <!-- 05 FACTS -->
+    <section class="sp-facts" aria-label="Story in numbers">
+      <div class="sp-wrap sp-facts-grid"><div class="sp-fact" data-reveal><b class="sp-fact-n"><span data-count="12">12</span></b><span class="sp-fact-l">Age her hair faced its hardest test</span></div><div class="sp-fact" data-reveal><b class="sp-fact-n"><span data-count="7">7</span></b><span class="sp-fact-l">Age Tracy became her first client and muse</span></div><div class="sp-fact" data-reveal><b class="sp-fact-n"><span data-count="2">2</span>½</b><span class="sp-fact-l">Years the salon grew before Italy</span></div><div class="sp-fact" data-reveal><b class="sp-fact-n"><span data-count="5">5</span></b><span class="sp-fact-l">Principles that guide Qress-ent</span></div>
+      </div>
+    </section>
 
-          <ul class="os-principles">
-            <li class="os-principle up"><span class="os-p-name">Sankofa</span><span class="os-p-text">We reclaim lost knowledge.</span></li>
-            <li class="os-principle up"><span class="os-p-name">Elimu</span><span class="os-p-text">We pass it across generations.</span></li>
-            <li class="os-principle up"><span class="os-p-name">Ubuntu</span><span class="os-p-text">We celebrate every texture.</span></li>
-            <li class="os-principle up"><span class="os-p-name">Kimuntu</span><span class="os-p-text">We keep care simple and accessible.</span></li>
-            <li class="os-principle up"><span class="os-p-name">Ase</span><span class="os-p-text">We protect cultural integrity.</span></li>
-          </ul>
-
-          <div class="os-phil-end">
-            <p class="up">Unlike approaches that treat 4C and textured hair as a problem, we see African hair as a sacred canvas of identity, heritage and power.</p>
-            <a href="contact.html" class="os-cta up">Connect with us</a>
-          </div>
+    <!-- 06 TWINS -->
+    <section class="sp-twins" aria-labelledby="sp-twins-h">
+      <div class="sp-marquee" aria-hidden="true">
+        <div class="sp-marquee-track"><span>Qatrinah</span><i></i><span>Reece</span><i></i><span>Qatrinah</span><i></i><span>Reece</span><i></i><span>Qatrinah</span><i></i><span>Reece</span><i></i></div>
+      </div>
+      <div class="sp-wrap">
+        <div class="sp-twins-head">
+          <p class="sp-label sp-label-ink" data-reveal>The twin roots</p>
+          <h2 id="sp-twins-h" class="sp-h2 sp-h2-ink" data-split-lines><span class="ln"><span>Meet the <em>twins.</em></span></span></h2>
+        </div>
+        <figure class="sp-twins-media" data-reveal="curtain" data-parallax>
+          <img src="../images/meet-the-twins.jpg" alt="Catherine and Tracy, the twins" loading="lazy">
+        </figure>
+        <div class="sp-twins-copy">
+          <p data-reveal>Catherine’s journey is inseparable from her twin sister, Tracy. Their shared bond is etched into the very roots of the brand: long before Qress-ent existed, their partnership began in childhood play and grew into Qressinah Enterprises, a name born from the fusion of their nicknames, Qatrinah and Reece. It was a space built on mutual trust, where Tracy mastered nail artistry while Catherine tended to crowns.</p>
+          <p data-reveal>In African heritage, twins represent a sacred balance: harmony, duality, and an intertwined spiritual destiny. Tracy was Catherine’s very first client and muse at just seven years old, sitting patiently as small hands learned an ancestral craft, and she remains her client and fiercest supporter today. As the enduring face of the brand, Tracy grounds the vision in real sisterhood.</p>
+          <p data-reveal>That partnership is still the heartbeat of Qress-ent: ancestral memory on one side, modern ideas on the other, and care that starts at home.</p>
         </div>
       </div>
+    </section>
 
-      <div class="os-mark" aria-hidden="true" data-mark>
-        <span>Q</span><span>R</span><span>E</span><span>S</span><span>S</span><span>-</span><span>E</span><span>N</span><span>T</span>
+    <!-- 07 MISSION -->
+    <section class="sp-mission" aria-labelledby="sp-mission-h">
+      <div class="sp-wrap">
+        <p class="sp-label" data-reveal>Mission &amp; vision</p>
+        <h2 id="sp-mission-h" class="sp-mega" data-split-lines>
+          <span class="ln"><span>Hair is</span></span>
+          <span class="ln"><span><em>identity.</em></span></span>
+        </h2>
+        <div class="sp-mission-copy">
+          <p class="sp-fill">Our mission is to reconnect Africans globally with their identity, heritage and confidence by unearthing ancestral hair care wisdom, providing accessible education, and creating natural solutions that allow African hair to thrive.</p>
+          <p class="sp-fill">We want to be the first place anyone looks for African hair knowledge, so that every African can wear their natural crown with pride, clarity and ease.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 08 PHILOSOPHY -->
+    <section class="sp-phil" aria-labelledby="sp-phil-h">
+      <div class="sp-wrap">
+        <p class="sp-label sp-label-ink" data-reveal>The Qress-ent philosophy</p>
+        <h2 id="sp-phil-h" class="sp-h2 sp-h2-ink sp-phil-h" data-split-lines>
+          <span class="ln"><span>“Hair is an</span></span>
+          <span class="ln"><span><em>identity.”</em></span></span>
+        </h2>
+        <p class="sp-lead sp-phil-lead" data-reveal>Qress-ent makes hair care, and it also researches, teaches and publishes. All of it is the same work.</p>
+        <div class="sp-rows sp-rows-light">
+          <a class="sp-row sp-row-val" href="value-sankofa.html" data-peek="../images/value-sankofa.jpg" data-reveal>
+            <span class="sp-row-n">01</span>
+            <span class="sp-row-t">Sankofa</span>
+            <span class="sp-row-m">We reclaim lost knowledge.</span>
+            <span class="sp-row-go"><svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="sp-row sp-row-val" href="value-elimu.html" data-peek="../images/value-elimu.jpg" data-reveal>
+            <span class="sp-row-n">02</span>
+            <span class="sp-row-t">Elimu</span>
+            <span class="sp-row-m">We pass it across generations.</span>
+            <span class="sp-row-go"><svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="sp-row sp-row-val" href="value-ubuntu.html" data-peek="../images/value-ubuntu.jpg" data-reveal>
+            <span class="sp-row-n">03</span>
+            <span class="sp-row-t">Ubuntu</span>
+            <span class="sp-row-m">We celebrate every texture.</span>
+            <span class="sp-row-go"><svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="sp-row sp-row-val" href="value-kimuntu.html" data-peek="../images/woman-combing-man.jpg" data-reveal>
+            <span class="sp-row-n">04</span>
+            <span class="sp-row-t">Kimuntu</span>
+            <span class="sp-row-m">We keep care simple and accessible.</span>
+            <span class="sp-row-go"><svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+          <a class="sp-row sp-row-val" href="value-ase.html" data-peek="../images/value-ase.jpg" data-reveal>
+            <span class="sp-row-n">05</span>
+            <span class="sp-row-t">Ase</span>
+            <span class="sp-row-m">We protect cultural integrity.</span>
+            <span class="sp-row-go"><svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+          </a>
+        </div>
+        <div class="sp-phil-end">
+          <p data-reveal>Plenty of brands treat 4C and textured hair as a problem to manage. We start from the opposite place: this hair is worth knowing.</p>
+          <a href="contact.html" class="sp-pill sp-pill-solid" data-reveal>Connect with us <svg class="arr" viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
       </div>
     </section>
   </main>
+
+  <div class="sp-peek" aria-hidden="true"><img alt="" src=""></div>
 
   <footer class="site-footer">
     <div class="container">
@@ -221,12 +303,13 @@
         <div class="footer-col">
           <h4>Explore</h4>
           <a href="our-story.html">Our Story</a>
+          <a href="what-we-do.html">What We Do</a>
           <a href="hair-culture.html">Hair & Culture</a>
           <a href="contact.html">Contact</a>
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
-          <a href="https://linktr.ee/qressinah" target="_blank" rel="noopener">Linktree</a>
+          <a href="https://linktr.ee/qressinah" target="_blank" rel="noopener noreferrer">Linktree</a>
           <a href="#" data-whatsapp-order>WhatsApp</a>
         </div>
         <div class="footer-col">
@@ -242,6 +325,6 @@
   </footer>
 
   <script src="../js/main.js"></script>
-  <script src="../js/our-story.js"></script>
+  <script src="../js/story-portfolio.js"></script>
 </body>
 </html>

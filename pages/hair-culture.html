@@ -2,21 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; form-action 'self' https://b720ae1b.sibforms.com; base-uri 'self'; object-src 'none'" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <script src="../js/boot.js"></script>
+  <meta name="theme-color" content="#FDF5E8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Hair & Culture | Qress-ent</title>
-  <meta name="description" content="African hair care, hairstyles and cultural stories." />
-  <meta property="og:title" content="Hair & Culture | Qress-ent" />
-  <meta property="og:description" content="African hair care, hairstyles and cultural stories." />
+  <title>Hair &amp; Culture | Qress-ent</title>
+  <meta name="description" content="Essays, guides and style histories that treat African hair as heritage. Plus the essay Hair Is an Identity." />
+  <meta property="og:title" content="Hair &amp; Culture | Qress-ent" />
+  <meta property="og:description" content="Essays, guides and style histories that treat African hair as heritage. Plus the essay Hair Is an Identity." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://qressent.shop/pages/hair-culture.html" />
   <meta property="og:image" content="https://qressent.shop/images/og-image.jpg" />
   <link rel="icon" href="../images/favicon.png" type="image/png" />
   <link rel="canonical" href="https://qressent.shop/pages/hair-culture.html" />
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="../css/extras.css" />
+  <link rel="stylesheet" href="../css/premium.css" />
+  <link rel="stylesheet" href="../css/hair-culture.css" />
+  <script src="../js/premium.js" defer></script>
+  <script src="../js/hair-culture.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -27,8 +35,8 @@
       <nav class="nav-links" aria-label="Main navigation">
         <a href="../index.html">Home</a>
         <a href="our-story.html">Our Story</a>
-        <a href="identity.html" class="">Identity</a>
-        <a href="hair-culture.html" class="active">Hair & Culture</a>
+        <a href="what-we-do.html">What We Do</a>
+        <a href="hair-culture.html" class="active">Hair &amp; Culture</a>
         <a href="contact.html">Contact</a>
       </nav>
       <div class="nav-actions">
@@ -38,208 +46,458 @@
       </div>
     </div>
   </header>
-  <main>
+  <main id="main" class="hx">
 
-    <section class="page-hero">
-      <div class="container">
-        <p class="label">Learn &amp; Explore</p>
-        <h1>HAIR &amp; CULTURE</h1>
-        <p>Stories, styles and tools that treat African hair as heritage — not a problem to solve.</p>
+    <section class="hx-hero">
+      <div class="container hx-hero-grid">
+        <div class="hx-hero-copy">
+          <p class="hx-kicker" data-reveal>Read, learn, remember</p>
+          <h1 class="hx-title" data-split-lines>
+            <span class="ln"><span>Hair</span></span>
+            <span class="ln"><span>&amp; <em>culture.</em></span></span>
+          </h1>
+          <p class="hx-intro" data-reveal>Essays, guides and style histories that treat African hair as heritage, not a problem to fix. Start anywhere. If you only read one thing, make it the essay on identity at the bottom of the page.</p>
+        </div>
+        <div class="hx-hero-art" aria-hidden="true">
+          <div class="hx-arch" data-reveal="arch" data-parallax><img src="../images/model-braids-back.jpg" alt="" width="1280" height="1600" fetchpriority="high"></div>
+          <div class="hx-chip" data-reveal><img src="../images/tool-carved-afro-comb.jpg" alt="" width="823" height="1097" loading="lazy"></div>
+        </div>
       </div>
     </section>
 
-    <section class="section">
+    <nav class="hx-nav" aria-label="On this page">
+      <div class="hx-nav-inner">
+        <a href="#hair-care">Hair care</a>
+        <a href="#hairstyles">Hairstyles</a>
+        <a href="#culture">Culture &amp; stories</a>
+        <a href="#identity">Identity</a>
+        <span class="hx-nav-dot" aria-hidden="true"></span>
+      </div>
+    </nav>
+
+    <section class="hx-featured-wrap">
       <div class="container">
-
-        <!-- 1. FEATURED -->
-        <a href="articles/sacred-crown-tools.html" class="hc-featured">
-          <div class="hc-featured-media">
-            <img src="../images/tool-carved-afro-comb.jpg" alt="The Sacred Crown: Iconic African Hair Tools">
-          </div>
-          <div class="hc-featured-body">
-            <p class="hc-label"><span>Featured</span> · Essay · 12 min read</p>
-            <h2>The Sacred Crown: Iconic African Hair Tools Across Time</h2>
-            <p class="hc-pull">From Nile Valley carved combs to modern flexi-brushes — eight tools that sculpt, protect and honour the crown.</p>
-            <span class="hc-read">Read the essay →</span>
-          </div>
+        <a class="hx-featured" href="articles/sacred-crown-tools.html" data-reveal>
+          <span class="hx-featured-media" data-parallax><img src="../images/tool-carved-afro-comb.jpg" alt="A carved African afro comb" width="823" height="1097" loading="lazy"></span>
+          <span class="hx-featured-body">
+            <span class="hx-featured-meta">Featured essay, 12 min read</span>
+            <span class="hx-featured-title">The Sacred Crown: Iconic African Hair Tools Across Time</span>
+            <span class="hx-featured-text">From Nile Valley carved combs to the modern flexi-brush, eight tools that shaped, protected and honoured the crown.</span>
+            <span class="btn-pill btn-pill--light hx-featured-cta"><span class="btn-pill-label">Read the essay</span><span class="btn-pill-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></span>
+          </span>
         </a>
+      </div>
+    </section>
 
-        <nav class="category-nav" aria-label="Content categories" style="margin-top:2.5rem;margin-bottom:2.5rem;">
-          <a href="#hair-care">Hair Care</a>
-          <a href="#hairstyles">Hairstyles</a>
-          <a href="#culture">Culture &amp; Stories</a>
-        </nav>
-
-        <!-- HAIR CARE -->
-        <div id="hair-care" class="hc-section">
-          <header class="hc-section-head">
-            <h2>Hair Care</h2>
-            <p>Routines, ingredients and what actually serves tightly coiled hair.</p>
-          </header>
-          <div class="articles-grid">
-            <a class="article-card" href="articles/ancient-botanical-oils.html">
-              <div class="article-card-image"><img src="../images/value-sankofa.jpg" alt="Ancient Botanical Oils"></div>
-              <div class="article-card-body">
-                <p class="meta">Guide · 6 min</p>
-                <h3>Ancient Botanical Oils: Chebe, Marula, and Baobab</h3>
-                <p>Traditional African oils that have nourished coils for generations.</p>
-              </div>
-            </a>
-            <a class="article-card" href="articles/porosity-coily-hair.html">
-              <div class="article-card-image"><img src="../images/natural-afro-topdown.jpg" alt="Porosity and coily hair"></div>
-              <div class="article-card-body">
-                <p class="meta">Guide · 7 min</p>
-                <h3>The Science of Porosity and Coily Hair Retention</h3>
-                <p>How porosity affects moisture — and how to prevent breakage.</p>
-              </div>
-            </a>
-            <a class="article-card" href="articles/nighttime-protection.html">
-              <div class="article-card-image"><img src="../images/hands-styling-braids.jpg" alt="Nighttime hair protection"></div>
-              <div class="article-card-body">
-                <p class="meta">Guide · 5 min</p>
-                <h3>Nighttime Protection: Silk, Satin, and Hair Wrapping</h3>
-                <p>Why wrapping before sleep protects moisture and style.</p>
-              </div>
-            </a>
-          </div>
+    <section class="hx-sec" id="hair-care">
+      <div class="container">
+        <header class="hx-sec-head">
+          <h2 data-split-lines><span class="ln"><span>Hair care</span></span></h2>
+          <p data-reveal>Routines, ingredients and what actually works for tightly coiled hair.</p>
+        </header>
+        <div class="hx-grid hx-grid--3">
+          <a class="hx-card" href="articles/ancient-botanical-oils.html" data-reveal>
+            <span class="hx-card-media"><img src="../images/value-sankofa.jpg" alt="Ancient botanical oils" width="800" height="600" loading="lazy" decoding="async"></span>
+            <span class="hx-card-body">
+              <span class="hx-card-meta">Guide, 6 min</span>
+              <span class="hx-card-title">Ancient Botanical Oils: Chebe, Marula and Baobab</span>
+              <span class="hx-card-text">Traditional African oils that have fed coils for generations.</span>
+              <span class="hx-card-go" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
+          <a class="hx-card" href="articles/porosity-coily-hair.html" data-reveal>
+            <span class="hx-card-media"><img src="../images/natural-afro-topdown.jpg" alt="Porosity and coily hair" width="800" height="600" loading="lazy" decoding="async"></span>
+            <span class="hx-card-body">
+              <span class="hx-card-meta">Guide, 7 min</span>
+              <span class="hx-card-title">The Science of Porosity and Coily Hair Retention</span>
+              <span class="hx-card-text">How porosity decides what your hair holds onto, and how to stop breakage.</span>
+              <span class="hx-card-go" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
+          <a class="hx-card" href="articles/nighttime-protection.html" data-reveal>
+            <span class="hx-card-media"><img src="../images/hands-styling-braids.jpg" alt="Nighttime hair protection" width="800" height="600" loading="lazy" decoding="async"></span>
+            <span class="hx-card-body">
+              <span class="hx-card-meta">Guide, 5 min</span>
+              <span class="hx-card-title">Nighttime Protection: Silk, Satin and Hair Wrapping</span>
+              <span class="hx-card-text">Why covering your hair before bed protects moisture and the style you paid for.</span>
+              <span class="hx-card-go" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
         </div>
+      </div>
+    </section>
 
-        <!-- HAIRSTYLES -->
-        <div id="hairstyles" class="hc-section">
-          <header class="hc-section-head">
-            <h2>Hairstyles</h2>
-            <p>Traditional techniques, protective styling and the architecture of the crown.</p>
-          </header>
-          <div class="articles-grid">
-            <a class="article-card" href="articles/koroba-braids.html">
-              <div class="article-card-image"><img src="../images/article-koroba.jpg" alt="Koroba Braids"></div>
-              <div class="article-card-body">
-                <p class="meta">Style · 6 min</p>
-                <h3>Koroba Braids</h3>
-                <p>History and meaning of this sculptural braid form.</p>
-              </div>
-            </a>
-            <a class="article-card" href="articles/fulani-braids.html">
-              <div class="article-card-image"><img src="../images/model-braids-front.jpg" alt="Fulani Braids"></div>
-              <div class="article-card-body">
-                <p class="meta">Style · 7 min</p>
-                <h3>Fulani Braids: Geometry, Beads, and Royal Origins</h3>
-                <p>West African patterning, heritage and modern interpretations.</p>
-              </div>
-            </a>
-            <a class="article-card" href="articles/locs-modern-traditions.html">
-              <div class="article-card-image"><img src="../images/man-smiling-twists.jpg" alt="Locs and modern traditions"></div>
-              <div class="article-card-body">
-                <p class="meta">Style · 8 min</p>
-                <h3>Locs &amp; Modern Traditions</h3>
-                <p>Starting, maturing and maintaining locs with cultural respect.</p>
-              </div>
-            </a>
-            <a class="article-card" href="articles/bantu-knots.html">
-              <div class="article-card-image"><img src="../images/hero-hair-identity.jpg" alt="Bantu Knots"></div>
-              <div class="article-card-body">
-                <p class="meta">Style · 5 min</p>
-                <h3>Bantu Knots: Ancient Architecture for Everyday Hair</h3>
-                <p>Zulu-originated knots as protection and heatless curls.</p>
-              </div>
-            </a>
-          </div>
+    <section class="hx-sec" id="hairstyles">
+      <div class="container">
+        <header class="hx-sec-head">
+          <h2 data-split-lines><span class="ln"><span>Hairstyles</span></span></h2>
+          <p data-reveal>Traditional techniques, protective styling and the architecture of the crown.</p>
+        </header>
+        <div class="hx-grid hx-grid--4">
+          <a class="hx-card" href="articles/koroba-braids.html" data-reveal>
+            <span class="hx-card-media"><img src="../images/man-braids-topdown.jpg" alt="Koroba braids" width="800" height="600" loading="lazy" decoding="async"></span>
+            <span class="hx-card-body">
+              <span class="hx-card-meta">Style, 6 min</span>
+              <span class="hx-card-title">Koroba Braids</span>
+              <span class="hx-card-text">The history and meaning of a braid that works like sculpture.</span>
+              <span class="hx-card-go" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
+          <a class="hx-card" href="articles/fulani-braids.html" data-reveal>
+            <span class="hx-card-media"><img src="../images/model-braids-front.jpg" alt="Fulani braids" width="800" height="600" loading="lazy" decoding="async"></span>
+            <span class="hx-card-body">
+              <span class="hx-card-meta">Style, 7 min</span>
+              <span class="hx-card-title">Fulani Braids: Geometry, Beads and Royal Origins</span>
+              <span class="hx-card-text">West African patterning, its heritage and the ways it is worn today.</span>
+              <span class="hx-card-go" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
+          <a class="hx-card" href="articles/locs-modern-traditions.html" data-reveal>
+            <span class="hx-card-media"><img src="../images/man-smiling-twists.jpg" alt="Locs and modern traditions" width="800" height="600" loading="lazy" decoding="async"></span>
+            <span class="hx-card-body">
+              <span class="hx-card-meta">Style, 8 min</span>
+              <span class="hx-card-title">Locs and Modern Traditions</span>
+              <span class="hx-card-text">Starting, growing and keeping locs with respect for where they come from.</span>
+              <span class="hx-card-go" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
+          <a class="hx-card" href="articles/bantu-knots.html" data-reveal>
+            <span class="hx-card-media"><img src="../images/hero-hair-identity.jpg" alt="Bantu knots" width="800" height="600" loading="lazy" decoding="async"></span>
+            <span class="hx-card-body">
+              <span class="hx-card-meta">Style, 5 min</span>
+              <span class="hx-card-title">Bantu Knots: Ancient Architecture for Everyday Hair</span>
+              <span class="hx-card-text">Zulu-origin knots as protection and as heatless curls.</span>
+              <span class="hx-card-go" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
         </div>
+      </div>
+    </section>
 
-        <!-- CULTURE -->
-        <div id="culture" class="hc-section">
-          <header class="hc-section-head">
-            <h2>Culture &amp; Stories</h2>
-            <p>History, identity, salons, ownership and ancestral wisdom.</p>
-          </header>
-          <div class="articles-grid">
-            <a class="article-card" href="articles/natural-curly-afro.html">
-              <div class="article-card-image"><img src="../images/article-natural-afro.jpg" alt="The Natural Curly Afro"></div>
-              <div class="article-card-body">
-                <p class="meta">Essay · 8 min</p>
-                <h3>The Natural Curly Afro</h3>
-                <p>History and significance of the afro across Africa and the diaspora.</p>
-              </div>
-            </a>
-            <a class="article-card" href="articles/map-on-the-scalp.html">
-              <div class="article-card-image"><img src="../images/hairstyle-cornrows.jpg" alt="The Map on the Scalp"></div>
-              <div class="article-card-body">
-                <p class="meta">History · 7 min</p>
-                <h3>The Map on the Scalp</h3>
-                <p>How braid patterns carried routes, messages and memory.</p>
-              </div>
-            </a>
-            <a class="article-card" href="articles/shea-butter-to-clay.html">
-              <div class="article-card-image"><img src="../images/heritage-identity.jpg" alt="From Shea Butter to Clay"></div>
-              <div class="article-card-body">
-                <p class="meta">History · 6 min</p>
-                <h3>From Shea Butter to Clay</h3>
-                <p>Hair rituals across pre-colonial Africa — status, rite and beautification.</p>
-              </div>
-            </a>
-            <a class="article-card" href="articles/return-to-the-crown.html">
-              <div class="article-card-image"><img src="../images/model-afro-back.jpg" alt="The Return to the Crown"></div>
-              <div class="article-card-body">
-                <p class="meta">Essay · 7 min</p>
-                <h3>The Return to the Crown</h3>
-                <p>Unlearning texturism and reclaiming natural texture with pride.</p>
-              </div>
-            </a>
-            <a class="article-card" href="articles/who-taught-professional.html">
-              <div class="article-card-image"><img src="../images/founder-profile-bantu.jpg" alt="Who Taught Us What Professional Looks Like?"></div>
-              <div class="article-card-body">
-                <p class="meta">Essay · 10 min</p>
-                <h3>Who Taught Us What Professional Looks Like?</h3>
-                <p>Colonial beauty hierarchies and the standards nobody remembers creating.</p>
-              </div>
-            </a>
-            <a class="article-card" href="articles/salon-never-just-salon.html">
-              <div class="article-card-image"><img src="../images/woman-combing-man.jpg" alt="The Salon Is Never Just a Salon"></div>
-              <div class="article-card-body">
-                <p class="meta">Essay · 9 min</p>
-                <h3>The Salon Is Never Just a Salon</h3>
-                <p>Community, economy and conversation — not only a haircut.</p>
-              </div>
-            </a>
-            <a class="article-card" href="articles/who-owns-hairstyle.html">
-              <div class="article-card-image"><img src="../images/model-braids-back.jpg" alt="Who Really Owns a Hairstyle?"></div>
-              <div class="article-card-body">
-                <p class="meta">Essay · 6 min</p>
-                <h3>Who Really Owns a Hairstyle?</h3>
-                <p>Credit, cultural amnesia, and telling the story straight.</p>
-              </div>
-            </a>
-            <a class="article-card" href="articles/sacred-crown-tools.html">
-              <div class="article-card-image"><img src="../images/tool-akan-dufe.jpg" alt="The Sacred Crown tools"></div>
-              <div class="article-card-body">
-                <p class="meta">Essay · 12 min</p>
-                <h3>The Sacred Crown: Iconic African Hair Tools</h3>
-                <p>Eight tools across time — from Nile Valley combs to flexi-brushes.</p>
-              </div>
-            </a>
-          </div>
+    <section class="hx-sec" id="culture">
+      <div class="container">
+        <header class="hx-sec-head">
+          <h2 data-split-lines><span class="ln"><span>Culture &amp; stories</span></span></h2>
+          <p data-reveal>History, identity, salons, ownership and the wisdom handed down.</p>
+        </header>
+        <div class="hx-grid hx-grid--culture">
+          <a class="hx-card" href="articles/natural-curly-afro.html" data-reveal>
+            <span class="hx-card-media"><img src="../images/article-natural-afro.jpg" alt="The natural curly afro" width="800" height="600" loading="lazy" decoding="async"></span>
+            <span class="hx-card-body">
+              <span class="hx-card-meta">Essay, 8 min</span>
+              <span class="hx-card-title">The Natural Curly Afro</span>
+              <span class="hx-card-text">What the afro has meant across Africa and the diaspora.</span>
+              <span class="hx-card-go" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
+          <a class="hx-card" href="articles/map-on-the-scalp.html" data-reveal>
+            <span class="hx-card-media"><img src="../images/hairstyle-cornrows.jpg" alt="The map on the scalp" width="800" height="600" loading="lazy" decoding="async"></span>
+            <span class="hx-card-body">
+              <span class="hx-card-meta">History, 7 min</span>
+              <span class="hx-card-title">The Map on the Scalp</span>
+              <span class="hx-card-text">How braid patterns carried routes, messages and memory.</span>
+              <span class="hx-card-go" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
+          <a class="hx-card" href="articles/shea-butter-to-clay.html" data-reveal>
+            <span class="hx-card-media"><img src="../images/heritage-identity.jpg" alt="From shea butter to clay" width="800" height="600" loading="lazy" decoding="async"></span>
+            <span class="hx-card-body">
+              <span class="hx-card-meta">History, 6 min</span>
+              <span class="hx-card-title">From Shea Butter to Clay</span>
+              <span class="hx-card-text">Hair rituals before colonial rule: status, rites and beauty.</span>
+              <span class="hx-card-go" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
+          <a class="hx-card" href="articles/return-to-the-crown.html" data-reveal>
+            <span class="hx-card-media"><img src="../images/model-afro-back.jpg" alt="The return to the crown" width="800" height="600" loading="lazy" decoding="async"></span>
+            <span class="hx-card-body">
+              <span class="hx-card-meta">Essay, 7 min</span>
+              <span class="hx-card-title">The Return to the Crown</span>
+              <span class="hx-card-text">Unlearning texturism and wearing your own texture without apology.</span>
+              <span class="hx-card-go" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
+          <a class="hx-card" href="articles/who-taught-professional.html" data-reveal>
+            <span class="hx-card-media"><img src="../images/founder-profile-bantu.jpg" alt="Who taught us what professional looks like" width="800" height="600" loading="lazy" decoding="async"></span>
+            <span class="hx-card-body">
+              <span class="hx-card-meta">Essay, 10 min</span>
+              <span class="hx-card-title">Who Taught Us What Professional Looks Like?</span>
+              <span class="hx-card-text">Colonial beauty hierarchies and the standards nobody remembers setting.</span>
+              <span class="hx-card-go" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
+          <a class="hx-card" href="articles/salon-never-just-salon.html" data-reveal>
+            <span class="hx-card-media"><img src="../images/woman-combing-man.jpg" alt="The salon is never just a salon" width="800" height="600" loading="lazy" decoding="async"></span>
+            <span class="hx-card-body">
+              <span class="hx-card-meta">Essay, 9 min</span>
+              <span class="hx-card-title">The Salon Is Never Just a Salon</span>
+              <span class="hx-card-text">Community, income and conversation. Not only a haircut.</span>
+              <span class="hx-card-go" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
+          <a class="hx-card" href="articles/who-owns-hairstyle.html" data-reveal>
+            <span class="hx-card-media"><img src="../images/model-braids-back.jpg" alt="Who really owns a hairstyle" width="800" height="600" loading="lazy" decoding="async"></span>
+            <span class="hx-card-body">
+              <span class="hx-card-meta">Essay, 6 min</span>
+              <span class="hx-card-title">Who Really Owns a Hairstyle?</span>
+              <span class="hx-card-text">Credit, cultural amnesia and telling the story straight.</span>
+              <span class="hx-card-go" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
+          <a class="hx-card" href="articles/sacred-crown-tools.html" data-reveal>
+            <span class="hx-card-media"><img src="../images/tool-akan-dufe.jpg" alt="The Sacred Crown tools" width="800" height="600" loading="lazy" decoding="async"></span>
+            <span class="hx-card-body">
+              <span class="hx-card-meta">Essay, 12 min</span>
+              <span class="hx-card-title">The Sacred Crown: Iconic African Hair Tools</span>
+              <span class="hx-card-text">Eight tools across time, from Nile Valley combs to flexi-brushes.</span>
+              <span class="hx-card-go" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
         </div>
+      </div>
+    </section>
 
-        <!-- 5. END CTA -->
-        <div class="hc-closing">
-          <h2>Keep going</h2>
-          <p>Hair is identity. Explore the essay on belonging, or the story of how Qress-ent began.</p>
-          <div class="hc-closing-actions">
-            <a href="identity.html" class="btn btn-primary">Read Identity</a>
-            <a href="our-story.html" class="btn btn-secondary">Our Story</a>
-            <a href="contact.html" class="btn btn-secondary">Connect</a>
-          </div>
+    <section class="hx-identity" id="identity">
+      <div class="hx-identity-top">
+        <div class="container">
+          <p class="hx-kicker hx-kicker--light" data-reveal>An essay on choice, memory and belonging</p>
+          <h2 class="hx-identity-title" data-split-lines>
+            <span class="ln"><span>Hair is an</span></span>
+            <span class="ln"><span><em>identity.</em></span></span>
+          </h2>
         </div>
+      </div>
+      <div class="container hx-essay-grid">
+        <aside class="hx-essay-side">
+          <div class="hx-essay-sticky">
+            <div class="hx-essay-img" data-reveal="curtain"><img src="../images/heritage-identity.jpg" alt="African hair and identity" width="674" height="1500" loading="lazy"></div>
+            <div class="hx-essay-progress" aria-hidden="true"><i></i></div>
+          </div>
+        </aside>
+        <div class="essay-body hx-essay">
+          <p>There are some things about ourselves we recognise before we understand them.</p>
+          <p>The sound of our mother's voice.</p>
+          <p>The shape of our hands.</p>
+          <p>The face in the mirror.</p>
+          <p>And our hair.</p>
+          <p>A child does not need to know anything about genetics to understand that their hair belongs to them.</p>
+          <p>It grows from their own head.</p>
+          <p>It changes as they grow.</p>
+          <p>It becomes part of the way they recognise themselves.</p>
+          <p>Then, slowly, other people begin to tell them what it means.</p>
+          <p>Too short.</p>
+          <p>Too thick.</p>
+          <p>Too rough.</p>
+          <p>Too much.</p>
+          <p>Beautiful.</p>
+          <p>Neat.</p>
+          <p>Unprofessional.</p>
+          <p>Different.</p>
+          <p>By the time we are adults, hair can carry an extraordinary amount of meaning.</p>
+          <p>Sometimes more than we realise.</p>
+          <p>For many Africans, hair has always been more than something that grows from the scalp.</p>
+          <p>It can tell people where you are going.</p>
+          <p>Who you are.</p>
+          <p>How old you might be.</p>
+          <p>What you are celebrating.</p>
+          <p>How you want to be seen.</p>
+          <p>A hairstyle can mark a wedding.</p>
+          <p>A graduation.</p>
+          <p>A new job.</p>
+          <p>A new relationship.</p>
+          <p>A new beginning.</p>
+          <p>Sometimes it marks the end of something.</p>
+          <p>There is a reason people change their hair after a breakup.</p>
+          <p>There is a reason someone cuts their hair after years of keeping it long.</p>
+          <p>There is a reason a woman can sit in a salon for six hours before an important occasion and somehow feel different when she finally gets up.</p>
+          <p>The hair has changed.</p>
+          <p>But something inside her has changed with it.</p>
+          <p>Or perhaps she is simply seeing herself differently.</p>
+          <p>This is where hair becomes identity.</p>
+          <p>Not because a hairstyle permanently defines who you are.</p>
+          <p>It doesn't.</p>
+          <p>We change our minds.</p>
+          <p>We grow tired of styles.</p>
+          <p>We cut our hair.</p>
+          <p>We grow it again.</p>
+          <p>We experiment.</p>
+          <p>We copy people.</p>
+          <p>We invent things.</p>
+          <p>We go through phases.</p>
+          <p>Our hair can change faster than almost anything else about us.</p>
+          <p>And yet, somehow, it remains connected to the person underneath it.</p>
+          <p>Maybe identity isn't about having one fixed appearance.</p>
+          <p>Maybe identity is also about having the freedom to decide how you appear.</p>
+          <p>African hair carries another layer of meaning because of its history.</p>
+          <p>For generations, Africans have been told, directly and indirectly, that certain features were undesirable.</p>
+          <p>Hair that grew upwards rather than falling down.</p>
+          <p>Hair that curled tightly instead of flowing.</p>
+          <p>Hair that required different techniques, different products and different ideas of care.</p>
+          <p>The message was sometimes blunt.</p>
+          <p>Sometimes it was disguised as advice.</p>
+          <p>“Make it neat.”</p>
+          <p>“Do something with it.”</p>
+          <p>“You'll look better if you straighten it.”</p>
+          <p>“That's not appropriate for work.”</p>
+          <p>“Your hair is too wild.”</p>
+          <p>Eventually, these comments can become part of the voice inside your own head.</p>
+          <p>You look into the mirror and judge yourself before anyone else has the chance.</p>
+          <p>That is one of the quietest ways beauty standards work.</p>
+          <p>They don't need to follow you everywhere.</p>
+          <p>Eventually, you carry them with you.</p>
+          <p>But identity is not the same thing as resistance.</p>
+          <p>A woman who wears her natural hair is not necessarily making a political statement.</p>
+          <p>A woman wearing a wig is not necessarily ashamed of her hair.</p>
+          <p>A man with locs is not necessarily trying to appear rebellious.</p>
+          <p>Someone who cuts their hair short may simply like short hair.</p>
+          <p>Someone who spends three hours getting braids may simply enjoy braids.</p>
+          <p>We sometimes make hair carry too much responsibility.</p>
+          <p>We want it to prove something.</p>
+          <p>Pride.</p>
+          <p>Authenticity.</p>
+          <p>Culture.</p>
+          <p>Resistance.</p>
+          <p>Beauty.</p>
+          <p>But hair does not owe us a political message.</p>
+          <p>It belongs to the person wearing it.</p>
+          <p>That may be the most important part of identity:</p>
+          <p>choice.</p>
+          <p>Think about how often hair appears in our memories.</p>
+          <p>The hairstyle you had in primary school.</p>
+          <p>The haircut your mother insisted on.</p>
+          <p>The braids you wore for your first day of school.</p>
+          <p>The barber who always knew exactly how you wanted it cut.</p>
+          <p>The hairstyle you had when you first fell in love.</p>
+          <p>The one in your graduation photographs.</p>
+          <p>The one you look back at now and wonder what you were thinking.</p>
+          <p>Hair becomes a timeline.</p>
+          <p>You can look at an old photograph and remember not only what you looked like, but who you were at the time.</p>
+          <p>Where you lived.</p>
+          <p>Who your friends were.</p>
+          <p>What you believed.</p>
+          <p>What you were trying to become.</p>
+          <p>Hair changes with us.</p>
+          <p>And sometimes it records changes we have forgotten.</p>
+          <p>There is also something deeply African about the communal nature of hair.</p>
+          <p>Someone has often been involved in it.</p>
+          <p>A mother.</p>
+          <p>A sister.</p>
+          <p>An aunt.</p>
+          <p>A friend.</p>
+          <p>A barber.</p>
+          <p>A stylist.</p>
+          <p>Someone sitting behind you with a comb.</p>
+          <p>Someone separating sections with their fingers.</p>
+          <p>Someone asking you to tilt your head.</p>
+          <p>Someone saying, “Don't move.”</p>
+          <p>The hairstyle may belong to one person, but the knowledge behind it can belong to generations.</p>
+          <p>That is why losing a hairstyle tradition can mean losing more than an aesthetic.</p>
+          <p>You can lose a technique.</p>
+          <p>A memory.</p>
+          <p>A language.</p>
+          <p>A connection between generations.</p>
+          <p>And when someone teaches it again, something comes back.</p>
+          <p>Not exactly as it was.</p>
+          <p>Culture rarely does.</p>
+          <p>But it comes back in a new form.</p>
+          <p>Perhaps that is why the future of African hair does not have to mean choosing between tradition and modernity.</p>
+          <p>We can have both.</p>
+          <p>We can wear traditional styles and invent completely new ones.</p>
+          <p>We can use techniques passed down by our grandmothers alongside products developed last year.</p>
+          <p>We can wear our natural hair one month and a wig the next.</p>
+          <p>We can embrace the history without becoming trapped by it.</p>
+          <p>Because identity is not a museum.</p>
+          <p>It moves.</p>
+          <p>It changes.</p>
+          <p>It grows.</p>
+          <p>Much like hair.</p>
+          <p>And perhaps that is the simplest truth of all.</p>
+          <p>Your hair does not have to look a certain way to prove that you are African.</p>
+          <p>It does not have to be natural to prove that you love yourself.</p>
+          <p>It does not have to be long, short, braided, locked, curly or straight.</p>
+          <p>It simply has to be yours.</p>
+          <p>Because hair is not the whole of who we are.</p>
+          <p>But for something that grows quietly from our heads, it has an extraordinary way of telling the world a little about who we have been,</p>
+          <p>and who we have chosen to become.</p>
+        </div>
+      </div>
+      <div class="container hx-more">
+        <h3 class="hx-more-title" data-reveal>Keep reading on identity</h3>
+        <div class="hx-grid hx-grid--3">
+          <a class="hx-card" href="articles/communal-hair-care.html" data-reveal>
+            <span class="hx-card-media"><img src="../images/woman-combing-man.jpg" alt="Communal hair grooming" width="800" height="600" loading="lazy" decoding="async"></span>
+            <span class="hx-card-body">
+              <span class="hx-card-meta">Essay</span>
+              <span class="hx-card-title">Communal Hair Care: The Bonding Rituals of Grooming</span>
+              <span class="hx-card-text">Hair care has rarely been a solitary task. It is time spent between knees, hands and stories.</span>
+              <span class="hx-card-go" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
+          <a class="hx-card" href="articles/decolonizing-beauty.html" data-reveal>
+            <span class="hx-card-media"><img src="../images/founder-catherine.jpg" alt="Redefining professionalism" width="800" height="600" loading="lazy" decoding="async"></span>
+            <span class="hx-card-body">
+              <span class="hx-card-meta">Essay</span>
+              <span class="hx-card-title">Decolonizing Beauty: Redefining Professionalism</span>
+              <span class="hx-card-text">&ldquo;Professional&rdquo; was never a neutral word. For African hair it often meant closer to European texture.</span>
+              <span class="hx-card-go" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
+          <a class="hx-card" href="articles/language-of-adornment.html" data-reveal>
+            <span class="hx-card-media"><img src="../images/model-braids-back.jpg" alt="Shells, beads and threading" width="800" height="600" loading="lazy" decoding="async"></span>
+            <span class="hx-card-body">
+              <span class="hx-card-meta">Essay</span>
+              <span class="hx-card-title">The Language of Adornment: Shells, Beads and Threading</span>
+              <span class="hx-card-text">Beads and cowries on a braid are more than decoration. They have spoken status, beauty and belief.</span>
+              <span class="hx-card-go" aria-hidden="true"><svg class="arr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+            </span>
+          </a>
+        </div>
+      </div>
+    </section>
 
+    <section class="closing-section hx-close">
+      <div class="container">
+        <h2 data-split-lines>
+          <span class="ln"><span>Keep going.</span></span>
+        </h2>
+        <p data-reveal>Meet the sisters behind Qress-ent, or see how we make wash day gentler.</p>
+        <div class="closing-ctas" data-reveal>
+          <a href="our-story.html" class="btn-pill btn-pill--light"><span class="btn-pill-label">Our Story</span><span class="btn-pill-arrow" aria-hidden="true"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span></a>
+          <a href="what-we-do.html" class="btn btn-secondary">What We Do</a>
+          <a href="contact.html" class="btn btn-secondary">Contact</a>
+        </div>
       </div>
     </section>
 
   </main>
-
   <footer class="site-footer">
     <div class="container">
-      <div class="footer-bottom" style="border:none;padding-top:0">
-        <span>© 2026 Qress-ent</span>
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <a href="../index.html" class="logo"><img src="../images/logo-icon.png" alt="Qress-ent" style="height:56px;width:auto;"></a>
+          <p>African hair care with roots. Founded by Engineer Catherine Juma. Hair is an identity.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Explore</h4>
+          <a href="our-story.html">Our Story</a>
+          <a href="what-we-do.html">What We Do</a>
+          <a href="hair-culture.html">Hair &amp; Culture</a>
+          <a href="contact.html">Contact</a>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <a href="https://www.instagram.com/qressent" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.tiktok.com/@qressinah.enterpr" target="_blank" rel="noopener noreferrer">TikTok</a>
+          <a href="https://linktr.ee/qressinah" target="_blank" rel="noopener noreferrer">Linktree</a>
+        </div>
+        <div class="footer-col">
+          <h4>Info</h4>
+          <a href="mailto:qressinahenterprises@gmail.com">qressinahenterprises@gmail.com</a>
+          <a href="#">Nairobi, Kenya</a>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <span>© 2026 Qress-ent. Previously Qressinah Enterprises.</span>
         <span>Hair is an identity.</span>
       </div>
     </div>

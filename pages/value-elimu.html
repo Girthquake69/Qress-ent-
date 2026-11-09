@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; form-action 'self' https://b720ae1b.sibforms.com; base-uri 'self'; object-src 'none'" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <script src="../js/boot.js"></script>
+  <meta name="theme-color" content="#FDF5E8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Elimu – Generational Education | Qress-ent</title>
-  <meta name="description" content="Generational Education — one of the core values of Qress-ent." />
-  <meta property="og:title" content="Elimu – Generational Education | Qress-ent" />
-  <meta property="og:description" content="Hair is an identity. A cultural wellness movement reconnecting Africans with ancestral hair wisdom, identity and pride." />
+  <title>Elimu: Generational Education | Qress-ent</title>
+  <meta name="description" content="Generational Education, one of the core values of Qress-ent." />
+  <meta property="og:title" content="Elimu: Generational Education | Qress-ent" />
+  <meta property="og:description" content="Hair is an identity. Qress-ent brings African hair knowledge, care and pride back into everyday life." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://qressent.shop/pages/value-elimu.html" />
   <meta property="og:image" content="https://qressent.shop/images/og-image.jpg" />
@@ -14,18 +19,20 @@
   <meta property="og:image:height" content="630" />
   <meta property="og:site_name" content="Qress-ent" />
   <meta name="twitter:card" content="summary_large_image" />
-  <meta name="twitter:title" content="Elimu – Generational Education | Qress-ent" />
+  <meta name="twitter:title" content="Elimu: Generational Education | Qress-ent" />
   <meta name="twitter:description" content="Hair is an identity. Ancestral wisdom, natural solutions, your crown." />
   <meta name="twitter:image" content="https://qressent.shop/images/og-image.jpg" />
   <link rel="icon" href="../images/favicon.png" type="image/png" />
   <link rel="apple-touch-icon" href="../images/favicon.png" />
   <link rel="canonical" href="https://qressent.shop/pages/value-elimu.html" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="../css/extras.css" />
+  <link rel="stylesheet" href="../css/premium.css" />
+  <script src="../js/premium.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -36,7 +43,7 @@
       <nav class="nav-links" aria-label="Main navigation">
         <a href="../index.html">Home</a>
         <a href="our-story.html">Our Story</a>
-        <a href="identity.html">Identity</a>
+        <a href="what-we-do.html">What We Do</a>
         <a href="hair-culture.html">Hair & Culture</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -49,28 +56,33 @@
   </header>
 
   <main>
-    <!-- Premium centred-style hero focused on the value -->
-    <section class="section" style="padding-top:4rem;padding-bottom:3rem;background:var(--cream);">
-      <div class="container" style="max-width:880px;text-align:center;">
-        <p class="label" style="color:var(--muted-gold);letter-spacing:0.14em;">Elimu</p>
-        <h1 style="font-size:clamp(2.2rem,5vw,3.4rem);margin-bottom:0.75rem;">Generational Education</h1>
-        <p style="font-family:var(--font-serif);font-size:1.15rem;color:var(--muted-gold);margin-bottom:0.5rem;">Swahili · East Africa</p>
-        <p style="font-size:1.05rem;color:var(--text-secondary);font-style:italic;margin-bottom:2.5rem;">“Education, learning, knowledge”</p>
-        <div style="max-width:720px;margin:0 auto;overflow:hidden;border-radius:4px;">
-          <img src="../images/value-elimu.jpg" alt="Elimu — Generational Education" style="width:100%;height:auto;display:block;">
+    <section class="value-hero">
+      <div class="container">
+        <p class="label" data-reveal>Elimu</p>
+        <h1 class="display" data-split-lines><span class="ln"><span>Generational <em>education.</em></span></span></h1>
+        <p class="value-origin" data-reveal>Swahili · East Africa</p>
+        <p class="value-proverb" data-reveal>“Education, learning, knowledge”</p>
+        <div class="value-media" data-reveal="curtain">
+          <img src="../images/value-elimu.jpg" alt="Elimu, Generational Education" fetchpriority="high">
         </div>
       </div>
     </section>
 
-    <section class="section">
-      <div class="container" style="max-width:680px;">
-        <p style="font-size:1.15rem;line-height:1.8;color:var(--text-secondary);">Elimu is the commitment to pass knowledge forward. Hair care is not only personal — it is cultural inheritance. We create accessible education so that what we recover is never lost again. From mother to child, sister to sister, community to community, the knowledge of how to care for African hair must keep moving.</p>
-        <p style="margin-top:2.5rem;">
+    <section class="value-body">
+      <div class="container">
+        <p class="lede" data-reveal>Elimu is the commitment to pass knowledge forward.</p>
+        <p data-reveal>Hair care is personal, and it is also inheritance. We teach in plain language so what we recover does not get lost again. From mother to child, sister to sister, community to community, the knowledge of how to care for African hair must keep moving.</p>
+        <div class="value-actions" data-reveal>
           <a href="../index.html" class="btn btn-secondary">← Back to Home</a>
-          <a href="our-story.html" class="btn btn-primary" style="margin-left:0.75rem;">Our Story</a>
-        </p>
+          <a href="our-story.html" class="btn btn-primary">Our Story <svg class="arr" viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+        </div>
       </div>
     </section>
+
+    <nav class="value-pager" aria-label="The five values" data-reveal>
+      <span class="vp-label">The five values</span>
+      <a href="value-sankofa.html">Sankofa</a><a href="value-elimu.html" aria-current="page">Elimu</a><a href="value-ubuntu.html">Ubuntu</a><a href="value-kimuntu.html">Kimuntu</a><a href="value-ase.html">Ase</a>
+    </nav>
   </main>
 
   <footer class="site-footer">
@@ -83,15 +95,15 @@
         <div class="footer-col">
           <h4>Explore</h4>
             <a href="our-story.html">Our Story</a>
-          <a href="identity.html">Identity</a>
+          <a href="what-we-do.html">What We Do</a>
           <a href="hair-culture.html">Hair & Culture</a>
           <a href="contact.html">Contact</a>
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
-          <a href="https://www.instagram.com/qressent" target="_blank" rel="noopener">Instagram</a>
-          <a href="https://www.tiktok.com/@qressinah.enterpr" target="_blank" rel="noopener">TikTok</a>
-          <a href="https://linktr.ee/qressinah" target="_blank" rel="noopener">Linktree</a>
+          <a href="https://www.instagram.com/qressent" target="_blank" rel="noopener noreferrer">Instagram</a>
+          <a href="https://www.tiktok.com/@qressinah.enterpr" target="_blank" rel="noopener noreferrer">TikTok</a>
+          <a href="https://linktr.ee/qressinah" target="_blank" rel="noopener noreferrer">Linktree</a>
         </div>
         <div class="footer-col">
           <h4>Info</h4>

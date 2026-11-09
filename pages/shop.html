@@ -2,11 +2,16 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src https://fonts.gstatic.com; img-src 'self' data:; media-src 'self'; connect-src 'self'; form-action 'self' https://b720ae1b.sibforms.com; base-uri 'self'; object-src 'none'" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <script src="../js/boot.js"></script>
+  <meta name="theme-color" content="#FDF5E8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Shop | Qress-ent</title>
   <meta name="description" content="Browse Qress-ent hair-care products created with African hair in mind." />
   <meta property="og:title" content="Shop | Qress-ent" />
-  <meta property="og:description" content="Hair is an identity. A cultural wellness movement reconnecting Africans with ancestral hair wisdom, identity and pride." />
+  <meta property="og:description" content="Hair is an identity. Qress-ent brings African hair knowledge, care and pride back into everyday life." />
   <meta property="og:type" content="website" />
   <meta property="og:url" content="https://qressent.shop/pages/shop.html" />
   <meta property="og:image" content="https://qressent.shop/images/og-image.jpg" />
@@ -21,11 +26,13 @@
   <link rel="apple-touch-icon" href="../images/favicon.png" />
   <link rel="canonical" href="https://qressent.shop/pages/shop.html" />
 
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" crossorigin />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Playfair+Display:wght@500;600&display=swap" rel="stylesheet" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600&display=swap" rel="stylesheet" crossorigin="anonymous" referrerpolicy="no-referrer" />
   <link rel="stylesheet" href="../css/styles.css" />
   <link rel="stylesheet" href="../css/extras.css" />
+  <link rel="stylesheet" href="../css/premium.css" />
+  <script src="../js/premium.js" defer></script>
 </head>
 <body>
   <header class="site-header">
@@ -37,7 +44,7 @@
         <a href="../index.html">Home</a>
         <a href="shop.html" class="active">Shop</a>
         <a href="our-story.html">Our Story</a>
-        <a href="identity.html">Identity</a>
+        <a href="what-we-do.html">What We Do</a>
         <a href="hair-culture.html">Hair & Culture</a>
         <a href="contact.html">Contact</a>
       </nav>
@@ -53,8 +60,8 @@
     <section class="page-hero">
       <div class="container">
         <p class="label">Shop</p>
-        <h1>CARE FOR YOUR CROWN.</h1>
-        <p>A collection created with African hair in mind. Order via WhatsApp — simple and personal.</p>
+        <h1>Care for your <em>crown.</em></h1>
+        <p>A collection created with African hair in mind. Order on WhatsApp and talk to a real person.</p>
       </div>
     </section>
 
@@ -82,12 +89,12 @@
             </div>
             <div class="product-body">
               <p class="product-category">Hand Care</p>
-              <h3 class="product-name">Handwash – Apple & Aloe Vera</h3>
+              <h3 class="product-name">Handwash: Apple & Aloe Vera</h3>
               <p class="product-desc">Antibacterial handwash with apple and aloe vera. 500ML.</p>
               <div class="product-meta"><span class="product-price">KSh 200</span></div>
               <div class="product-actions">
                 <a href="product.html?id=handwash-apple" class="btn btn-secondary">View Product</a>
-                <button class="btn btn-primary" data-add-to-order data-id="handwash-apple" data-name="Handwash – Apple & Aloe Vera" data-price="200">Add to Order</button>
+                <button class="btn btn-primary" data-add-to-order data-id="handwash-apple" data-name="Handwash: Apple & Aloe Vera" data-price="200">Add to Order</button>
               </div>
             </div>
           </article>
@@ -97,12 +104,12 @@
             </div>
             <div class="product-body">
               <p class="product-category">Hand Care</p>
-              <h3 class="product-name">Handwash – Strawberry</h3>
+              <h3 class="product-name">Handwash: Strawberry</h3>
               <p class="product-desc">Antibacterial handwash with strawberry. 500ML.</p>
               <div class="product-meta"><span class="product-price">KSh 200</span></div>
               <div class="product-actions">
                 <a href="product.html?id=handwash-strawberry" class="btn btn-secondary">View Product</a>
-                <button class="btn btn-primary" data-add-to-order data-id="handwash-strawberry" data-name="Handwash – Strawberry" data-price="200">Add to Order</button>
+                <button class="btn btn-primary" data-add-to-order data-id="handwash-strawberry" data-name="Handwash: Strawberry" data-price="200">Add to Order</button>
               </div>
             </div>
           </article>
@@ -124,12 +131,13 @@
         <div class="footer-col">
           <h4>Explore</h4>
             <a href="our-story.html">Our Story</a>
+          <a href="what-we-do.html">What We Do</a>
           <a href="hair-culture.html">Hair & Culture</a>
           <a href="contact.html">Contact</a>
         </div>
         <div class="footer-col">
           <h4>Connect</h4>
-          <a href="https://linktr.ee/qressinah" target="_blank" rel="noopener">Linktree</a>
+          <a href="https://linktr.ee/qressinah" target="_blank" rel="noopener noreferrer">Linktree</a>
           <a href="#" data-whatsapp-order>WhatsApp</a>
         </div>
         <div class="footer-col">

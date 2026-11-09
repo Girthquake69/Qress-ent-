@@ -1,4 +1,5 @@
-/* Qress-ent splash — orbit values + portrait + split curtains */
+/* Qress-ent splash: orbit values + portrait + split curtains */
+html { scrollbar-gutter: stable; }
 html.splash-lock,
 html.splash-lock body {
   height: 100%;
@@ -37,6 +38,7 @@ body.splash-active {
   bottom: 0;
   width: 50.2%;
   background: var(--bg);
+  will-change: transform;
 }
 .splash .panel-l { left: 0; }
 .splash .panel-r { right: 0; }
@@ -111,12 +113,28 @@ body.splash-active {
   border-radius: 50%;
   border: 1px solid rgba(232,160,32,.25);
 }
-.splash .arc {
+.splash .sweep {
   position: absolute;
   inset: -1px;
+}
+.splash .arc {
+  position: absolute;
+  inset: 0;
   border-radius: 50%;
-  border: 1px solid transparent;
-  border-top-color: var(--gold-light);
+  background: conic-gradient(from -78deg, transparent 0deg, rgba(232,160,32,.15) 10deg, var(--gold-light) 78deg, transparent 78.4deg);
+  -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1.5px));
+  mask: radial-gradient(farthest-side, transparent calc(100% - 2px), #000 calc(100% - 1.5px));
+}
+.splash .head {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 9px;
+  height: 9px;
+  margin: -4.5px 0 0 -4.5px;
+  border-radius: 50%;
+  background: var(--cream);
+  box-shadow: 0 0 10px var(--cream), 0 0 28px var(--gold-light);
 }
 
 .splash .portrait {
@@ -181,15 +199,15 @@ body.splash-active {
   letter-spacing: .02em;
   white-space: nowrap;
   color: var(--cream);
-  background: linear-gradient(105deg, var(--cream) 0 38%, var(--gold-bright) 50%, var(--cream) 62% 100%) 100% 50% / 250% 100%;
 }
-@supports (background-clip: text) or (-webkit-background-clip: text) {
-  .splash .brand-name {
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+.splash .mk {
+  display: inline-block;
+  overflow: hidden;
+  padding: .1em .02em .2em;
+  margin: -.1em -.02em -.2em;
+  vertical-align: top;
 }
+.splash .ch { display: inline-block; will-change: transform; }
 .splash .divider {
   align-self: stretch;
   height: 1px;
@@ -242,4 +260,34 @@ body.splash-active {
   overflow: hidden;
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+/* curtain seam: a gold hairline that flashes before the panels part */
+.splash .seam {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  margin-left: -.5px;
+  z-index: 4;
+  opacity: 0;
+  transform: scaleY(0);
+  background: linear-gradient(to bottom, transparent, var(--gold-light) 18%, var(--gold-bright) 50%, var(--gold-light) 82%, transparent);
+  box-shadow: 0 0 18px rgba(232,160,32,.55);
+}
+/* progress hairline */
+.splash .bar {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 2px;
+  z-index: 5;
+  transform: scaleX(0);
+  transform-origin: 0 50%;
+  background: linear-gradient(90deg, var(--gold), var(--gold-bright));
+}
+@media (max-width: 520px) {
+  .splash .word { letter-spacing: .1em; }
 }

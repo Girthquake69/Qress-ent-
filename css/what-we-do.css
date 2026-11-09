@@ -1,0 +1,80 @@
+/* =====================================================================
+   WHAT WE DO: detangling service page. Sits on styles.css / premium.css.
+   ===================================================================== */
+.wwd section { position: relative; }
+.wwd-h2 {
+  font-family: var(--font-serif); font-weight: 700; color: var(--p-ink);
+  font-size: clamp(2.5rem, 5.6vw, 5.2rem); line-height: 0.95; letter-spacing: -0.045em; margin: 0;
+}
+.wwd-h2--light { color: var(--cream); }
+
+/* hero: reuses the home hero grid, tightens the display size */
+.wwd-hero h1.display { font-size: clamp(3rem, 5.8vw, 5.8rem); font-weight: 800; letter-spacing: -0.05em; line-height: 0.92; }
+.wwd-hero h1.display em { font-weight: 400; }
+
+/* why it hurts */
+.wwd-why { padding-block: clamp(5rem, 10vw, 9rem); }
+.wwd-lede {
+  font-family: var(--font-serif); font-weight: 600; color: var(--p-ink); margin: 0; max-width: none;
+  font-size: clamp(2rem, 4.9vw, 4.7rem); line-height: 1.04; letter-spacing: -0.04em;
+}
+.wwd-lede .ln { white-space: normal; }
+.wwd-prose { max-width: 40rem; margin: clamp(2.5rem, 5vw, 4.5rem) 0 0 auto; }
+.wwd-prose p { font-size: clamp(1.08rem, 1.4vw, 1.26rem); line-height: 1.82; color: var(--text-secondary); margin: 0 0 1.5rem; max-width: none; }
+.wwd-prose p:first-child { color: var(--p-ink); }
+
+/* causes */
+.wwd-causes { padding-block: clamp(4.5rem, 9vw, 8rem); background: linear-gradient(180deg, rgba(245, 235, 217, 0), rgba(245, 235, 217, 0.9) 14%, rgba(245, 235, 217, 0.9) 86%, rgba(245, 235, 217, 0)); }
+.wwd-cause-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(1.5rem, 3.5vw, 3.5rem); margin-top: clamp(2.5rem, 5vw, 4.5rem); }
+.wwd-cause { padding-left: 1.6rem; border-left: 1px solid var(--p-line-gold); transition: border-color 0.5s var(--p-ease); }
+.wwd-cause h3 { font-family: var(--font-serif); font-weight: 700; font-size: clamp(1.7rem, 2.5vw, 2.3rem); line-height: 1.05; letter-spacing: -0.03em; margin: 0 0 0.85rem; color: var(--p-ink); transition: transform 0.6s var(--p-ease), color 0.4s var(--p-ease); }
+.wwd-cause p { margin: 0; color: var(--text-muted); line-height: 1.72; max-width: 30ch; }
+
+/* statement band */
+.wwd-band { min-height: clamp(26rem, 74vh, 42rem); display: flex; align-items: flex-end; overflow: hidden; background: var(--p-deep); }
+.wwd-band-media { position: absolute; inset: 0; overflow: hidden; }
+.wwd-band-media img { width: 100%; height: 100%; object-fit: cover; object-position: 50% 35%; }
+.wwd-band::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(30, 14, 3, 0.15), rgba(30, 14, 3, 0.82)); pointer-events: none; }
+.wwd-band-inner { position: relative; z-index: 2; padding-block: clamp(3rem, 7vw, 6rem); }
+.wwd-band-line { margin: 0; max-width: 20ch; color: var(--cream); font-family: var(--font-serif); font-weight: 700; font-size: clamp(2.3rem, 5.8vw, 5.4rem); line-height: 0.98; letter-spacing: -0.045em; }
+
+/* method */
+.wwd-method { padding-block: clamp(5rem, 10vw, 9rem); }
+.wwd-method-grid { display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); gap: clamp(2.5rem, 7vw, 7rem); align-items: start; }
+.wwd-method-head { position: sticky; top: 7.5rem; }
+.wwd-method-head p { margin-top: 1.6rem; max-width: 26rem; color: var(--text-secondary); line-height: 1.75; }
+.wwd-steps { list-style: none; margin: 0; padding: 0 0 0 2.4rem; position: relative; }
+.wwd-steps::before { content: ""; position: absolute; left: 0.5rem; top: 0.9rem; bottom: 1rem; width: 1px; background: var(--p-line-gold); }
+.wwd-step { position: relative; padding: 0 0 clamp(2.2rem, 4vw, 3.2rem); margin: 0; }
+.wwd-step::before {
+  content: ""; position: absolute; left: -2.4rem; top: 0.55rem; width: 1.05rem; height: 1.05rem; border-radius: 50%;
+  background: var(--cream); border: 1px solid var(--p-gold); transition: background 0.45s var(--p-ease), transform 0.6s var(--p-ease);
+}
+.wwd-step h3 { font-family: var(--font-serif); font-weight: 600; font-size: clamp(1.65rem, 2.5vw, 2.3rem); line-height: 1.08; letter-spacing: -0.03em; margin: 0 0 0.7rem; color: var(--p-ink); transition: color 0.4s var(--p-ease), transform 0.6s var(--p-ease); }
+.wwd-step p { margin: 0; max-width: 36rem; line-height: 1.75; color: var(--text-secondary); }
+
+/* who it is for */
+.wwd-for { padding-block: clamp(5rem, 10vw, 9rem); background: linear-gradient(180deg, #4E260A, var(--p-deep)); color: var(--cream); }
+.wwd-for-list { list-style: none; margin: clamp(2.5rem, 5vw, 4rem) 0 0; padding: 0; }
+.wwd-for-list li { margin: 0; padding: clamp(1.1rem, 2vw, 1.6rem) 0; border-top: 1px solid rgba(232, 160, 32, 0.28); }
+.wwd-for-list li:last-child { border-bottom: 1px solid rgba(232, 160, 32, 0.28); }
+.wwd-for-list span { display: block; max-width: 36ch; font-family: var(--font-serif); font-weight: 500; font-size: clamp(1.7rem, 3.7vw, 3.3rem); line-height: 1.1; letter-spacing: -0.03em; transition: transform 0.7s var(--p-ease), color 0.4s var(--p-ease); }
+.wwd-for-note { margin: clamp(2rem, 4vw, 3rem) 0 0; max-width: 36rem; font-family: var(--font-serif); font-style: italic; font-size: clamp(1.15rem, 1.7vw, 1.45rem); line-height: 1.55; color: rgba(253, 245, 232, 0.82); }
+
+@media (hover: hover) {
+  .wwd-cause:hover { border-color: var(--p-gold); }
+  .wwd-cause:hover h3 { transform: translateX(6px); color: var(--p-gold-ink); }
+  .wwd-step:hover::before { background: var(--p-gold); transform: scale(1.25); }
+  .wwd-step:hover h3 { color: var(--p-gold-ink); transform: translateX(6px); }
+  .wwd-for-list li:hover span { transform: translateX(clamp(0.6rem, 2vw, 1.6rem)); color: var(--p-gold-soft); }
+}
+@media (max-width: 900px) {
+  .wwd-cause-grid { grid-template-columns: 1fr; gap: 2rem; }
+  .wwd-cause p { max-width: 44ch; }
+  .wwd-method-grid { grid-template-columns: 1fr; }
+  .wwd-method-head { position: static; }
+  .wwd-prose { margin-left: 0; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .wwd-cause, .wwd-cause h3, .wwd-step::before, .wwd-step h3, .wwd-for-list span { transition: none; }
+}

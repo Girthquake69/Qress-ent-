@@ -20,7 +20,7 @@
   {
     "id": "handwash-apple",
     "slug": "handwash-apple-aloe",
-    "name": "Handwash – Apple & Aloe Vera",
+    "name": "Handwash: Apple & Aloe Vera",
     "category": "Hand Care",
     "price": "200",
     "currency": "KSh",
@@ -38,7 +38,7 @@
   {
     "id": "handwash-strawberry",
     "slug": "handwash-strawberry",
-    "name": "Handwash – Strawberry",
+    "name": "Handwash: Strawberry",
     "category": "Hand Care",
     "price": "200",
     "currency": "KSh",

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   Qress-ent — Our Story: kinetic scroll layer
+   Qress-ent: Our Story: kinetic scroll layer
    Vanilla JS, no dependencies. One rAF-throttled scroll loop drives:
      - the pinned name morph (QATRINAH -> QRESSINAH -> QRESS-ENT)
      - the horizontal story track
@@ -303,10 +303,47 @@
     return clamp(-journey.getBoundingClientRect().top / jDist);
   }
 
+  /* Focus pull + chapter counter: read all geometry first, then write */
+  var jCards = $$('.os-j-panel').filter(function (el) { return !el.classList.contains('os-j-intro'); });
+  var jCount = null;
+  var jCountNum = null;
+  if (jStage && jCards.length) {
+    jCount = document.createElement('div');
+    jCount.className = 'os-j-count';
+    jCount.setAttribute('aria-hidden', 'true');
+    jCount.appendChild(document.createTextNode('Chapter '));
+    var jNum = document.createElement('b');
+    jNum.textContent = '01';
+    jCount.appendChild(jNum);
+    jCount.appendChild(document.createTextNode(' / ' + ('0' + jCards.length).slice(-2)));
+    jStage.appendChild(jCount);
+    jCountNum = jCount.querySelector('b');
+  }
+  var lastChapter = -1;
+
   function renderJourney(p) {
     if (!jDist || !track) return;
     track.style.transform = 'translate3d(' + (-p * jDist) + 'px,0,0)';
     if (fill) fill.style.transform = 'scaleX(' + p + ')';
+
+    var vw = window.innerWidth;
+    var half = vw * 0.5;
+    var best = 0;
+    var bestF = -1;
+    var fs = jCards.map(function (el) {
+      var r = el.getBoundingClientRect();
+      var d = Math.abs(r.left + r.width / 2 - half * 0.9) / (vw * 0.46);
+      return clamp(1 - d);
+    });
+    jCards.forEach(function (el, i) {
+      el.style.setProperty('--f', fs[i].toFixed(3));
+      if (fs[i] > bestF) { bestF = fs[i]; best = i; }
+    });
+    if (p > 0.985) best = jCards.length - 1;
+    if (jCountNum && best !== lastChapter) {
+      lastChapter = best;
+      jCountNum.textContent = ('0' + (best + 1)).slice(-2);
+    }
   }
 
   /* ---------- Scroll-linked extras ---------- */
